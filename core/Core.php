@@ -2,8 +2,8 @@
 class Core{
     public function run(){
         
-        $url = explode("index.php", $_SERVER['PHP_SELF']);
-        $url = end($url);
+        $urlBase = explode("index.php", $_SERVER['PHP_SELF']);
+        $url = end($urlBase);
         $params = array();
         
         if (!empty($url)) {
