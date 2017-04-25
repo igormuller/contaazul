@@ -2,8 +2,7 @@
 class Core{
     public function run(){
         
-        $urlBase = explode("index.php", $_SERVER['PHP_SELF']);
-        $url = end($urlBase);
+        $url = (isset($_GET['q']))?"/".$_GET['q']:"";
         $params = array();
         
         if (!empty($url)) {
