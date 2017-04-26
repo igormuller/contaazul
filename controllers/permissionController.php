@@ -1,5 +1,5 @@
 <?php
-class homeController extends controller {
+class permissionController extends controller {
     
     public function __construct() {
         parent::__construct();
@@ -16,9 +16,8 @@ class homeController extends controller {
         $user->setLoggedUser();
         $data['user_name'] = $user->getName();
         $company = new Company($user->getCompany());
-        
         $data['company_name'] = $company->getName();
-        $this->loadTemplate('home', $data);
+        $this->loadTemplate('permission', $data);
     }
     
 }
