@@ -3,6 +3,7 @@
 class User extends model {
     
     private $userInfo;
+    private $permission;
     
     public function isLogged() {
         
@@ -39,8 +40,15 @@ class User extends model {
             
             if ($sql->rowCount() > 0) {
                 $this->userInfo = $sql->fetch();
+                $this->permission = new Permission();
+                $this->permission->setGroup($this->userInfo['group'], $this->userInfo['id_company']);
             }            
         }    
+    }
+    
+    public function hasPermission($name) {
+        return $this->permission->hasPermission($name);
+        
     }
     
     public function getCompany() {

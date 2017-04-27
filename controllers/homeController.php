@@ -16,7 +16,6 @@ class homeController extends controller {
         $user->setLoggedUser();
         $data['user_name'] = $user->getName();
         $company = new Company($user->getCompany());
-        
         $data['company_name'] = $company->getName();
         $this->loadTemplate('home', $data);
     }

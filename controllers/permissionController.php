@@ -17,8 +17,15 @@ class permissionController extends controller {
         $data['user_name'] = $user->getName();
         $company = new Company($user->getCompany());
         $data['company_name'] = $company->getName();
-        $this->loadTemplate('permission', $data);
+        
+        if ($user->hasPermission("PERMISSION_VIEW")) {
+            $permission = new Permission();
+            $data['permission_list'] = $permission->getList($user->getCompany());
+            $this->loadTemplate('permission', $data);
+        } else {
+            header("Location: ".BASE_URL."/erro/permission");
+        }
+        
     }
     
 }
-?>

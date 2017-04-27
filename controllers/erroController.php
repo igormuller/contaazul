@@ -11,8 +11,23 @@ class erroController extends controller {
     }
     
     public function index() {
-        $dados = array();
-        $this->loadTemplate('erro', $dados);
+        $data = array();
+        $user = new User();
+        $user->setLoggedUser();
+        $data['user_name'] = $user->getName();
+        $company = new Company($user->getCompany());
+        $data['company_name'] = $company->getName();
+        $this->loadTemplate('erro', $data);
+    }
+    
+    public function permission() {
+        $data = array();
+        $user = new User();
+        $user->setLoggedUser();
+        $data['user_name'] = $user->getName();
+        $company = new Company($user->getCompany());
+        $data['company_name'] = $company->getName();
+        $this->loadTemplate('erroPermission', $data);
     }
     
 }
