@@ -41,7 +41,7 @@ class User extends model {
             if ($sql->rowCount() > 0) {
                 $this->userInfo = $sql->fetch();
                 $this->permission = new Permission();
-                $this->permission->setGroup($this->userInfo['group'], $this->userInfo['id_company']);
+                $this->permission->setGroup($this->userInfo['id_group'], $this->userInfo['id_company']);
             }            
         }    
     }
@@ -51,6 +51,20 @@ class User extends model {
         
     }
     
+    public function findUsersInGroup($id_group) {
+        $sql = $this->db->prepare("SELECT COUNT(*) AS c FROM user WHERE id_group = :id_group");
+        $sql->bindValue(":id_group", $id_group);
+        $sql->execute();
+        $row = $sql->fetch();
+        
+        if ($row['c'] === '0') {
+            return FALSE;
+        } else {
+            return TRUE;
+        }
+    }
+
+
     public function getCompany() {
         if (isset($this->userInfo['id_company'])) {
             return $this->userInfo['id_company'];
