@@ -15,6 +15,43 @@ class User extends model {
         $sql->execute();        
     }
     
+    public function edit($name, $password, $id_group, $id_user, $id_company) {
+        $command = "UPDATE user SET name = :name, id_group = :id_group";
+        if (!empty($password)) {
+            $command .= ", password = :password";
+        }
+        $command .= " WHERE id_user = :id_user AND id_company = :id_company";
+        $sql = $this->db->prepare($command);
+        $sql->bindValue(":name", $name);
+        if (!empty($password)) {
+            $sql->bindValue(":password", md5($password));
+        }
+        $sql->bindValue(":id_group", $id_group);
+        $sql->bindValue(":id_user", $id_user);
+        $sql->bindValue(":id_company", $id_company);
+        $sql->execute();        
+    }
+    
+    public function delete($id_user, $id_company) { 
+        $sql = $this->db->prepare("DELETE FROM user WHERE id_user = :id_user AND id_company = :id_company");
+        $sql->bindValue(":id_user", $id_user);
+        $sql->bindValue(":id_company", $id_company);
+        $sql->execute();
+    }
+    
+    public function findUserByEmail($email) {
+        $sql = $this->db->prepare("SELECT COUNT(*) AS c FROM user WHERE email = :email");
+        $sql->bindValue(":email", $email);
+        $sql->execute();
+        
+        if ($sql->fetch()['c'] === '0') {
+            return FALSE;
+        } else {
+            return TRUE;
+        }
+    }
+
+
     public function isLogged() {
         
         if (isset($_SESSION['ccUser']) && !empty($_SESSION['ccUser'])) {
@@ -71,6 +108,18 @@ class User extends model {
             return TRUE;
         }
     }
+    
+    public function getUser($id_user) {
+        $sql = $this->db->prepare("SELECT * FROM user WHERE id_user = :id_user");
+        $sql->bindValue(":id_user", $id_user);
+        $sql->execute();
+        
+        $array = array();
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetch();
+        }
+        return $array;        
+    }
 
     public function getList($id_company) {
         $sql = $this->db->prepare("SELECT "
@@ -93,12 +142,25 @@ class User extends model {
     }
    
 
-    public function getCompany() {
-        if (isset($this->userInfo['id_company'])) {
-            return $this->userInfo['id_company'];
+    public function getCompany($id_user = '') {
+        
+        if (!empty($id_user)) {
+            $sql = $this->db->prepare("SELECT id_company FROM user WHERE id_user = :id_user");
+            $sql->bindValue(":id_user", $id_user);
+            $sql->execute();
+            
+            $id_company = '';
+            if ($sql->rowCount() > 0) {
+                $id_company = $sql->fetch()['id_company'];
+            }
+            return $id_company;
         } else {
-            return 0;
-        }
+            if (isset($this->userInfo['id_company'])) {
+                return $this->userInfo['id_company'];
+            } else {
+                return 0;
+            }
+        }        
     }
     
     public function getName() {

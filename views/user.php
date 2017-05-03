@@ -37,7 +37,7 @@
                                 <td><?php echo $u['email']; ?></td>
                                 <td><?php echo $u['name_group']; ?></td>
                                 <td>
-                                    <a href="<?php echo BASE_URL; ?>/user/edit/<?php echo $$u['id_user']; ?>" class="btn btn-success"><i class="fa fa-fw fa-pencil-square-o"></i></a>
+                                    <a href="<?php echo BASE_URL; ?>/user/edit/<?php echo $u['id_user']; ?>" class="btn btn-success"><i class="fa fa-fw fa-pencil-square-o"></i></a>
                                     <a href="<?php echo BASE_URL; ?>/user/delete/<?php echo $u['id_user']; ?>" class="btn btn-danger" onclick="return confirm('Deseja remover o usuário?')"><i class="fa fa-fw fa-minus-square"></i></a>
                                 </td>
                             </tr>
