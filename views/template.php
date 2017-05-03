@@ -233,6 +233,7 @@
                         <li class="active"><a href="<?php echo BASE_URL; ?>"><i class="fa fa-home"></i> <span>Home</span></a></li>
                         <li><a href="<?php echo BASE_URL; ?>/permission"><i class="fa fa-gears"></i> <span>Permissões</span></a></li>
                         <li><a href="<?php echo BASE_URL; ?>/user"><i class="fa fa-users"></i> <span>Usuários</span></a></li>
+                        <li><a href="<?php echo BASE_URL; ?>/client"><i class="fa fa-street-view"></i> <span>Clientes</span></a></li>
                         <li class="treeview">
                             <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
                                 <span class="pull-right-container">
