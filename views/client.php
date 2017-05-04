@@ -39,8 +39,14 @@
                                     <td><?php echo $c['address_city']; ?></td>
                                     <td><?php echo $c['stars']; ?></td>
                                     <td>
-                                        <a href="<?php echo BASE_URL; ?>/client/edit/<?php echo $c['id_user']; ?>" class="btn btn-success"><i class="fa fa-fw fa-pencil-square-o"></i></a>
-                                        <a href="<?php echo BASE_URL; ?>/client/delete/<?php echo $c['id_user']; ?>" class="btn btn-danger" onclick="return confirm('Deseja remover o usuário?')"><i class="fa fa-fw fa-minus-square"></i></a>
+                                        <?php if ($permission_edit): ?>
+                                            <a href="<?php echo BASE_URL; ?>/client/edit/<?php echo $c['id_user']; ?>" class="btn btn-success"><i class="fa fa-fw fa-pencil-square-o"></i></a>
+                                            <a href="<?php echo BASE_URL; ?>/client/delete/<?php echo $c['id_user']; ?>" class="btn btn-danger" onclick="return confirm('Deseja remover o cliente?')"><i class="fa fa-fw fa-minus-square"></i></a>
+                                        <?php else: ?>
+                                            <a href="<?php echo BASE_URL; ?>/client/view/<?php echo $c['id_user']; ?>" class="btn btn-primary"><i class="fa fa-fw fa-eye"></i></a>
+                                        <?php endif; ?>
+
+
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

@@ -345,11 +345,16 @@
         <!-- REQUIRED JS SCRIPTS -->
 
         <!-- jQuery 2.2.3 -->
-        <script src="<?php echo BASE_URL; ?>/assets/js/jquery.min.js"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/jquery-2.2.3.min.js"></script>
         <!-- Bootstrap 3.3.6 -->
-        <script src="<?php echo BASE_URL; ?>/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/bootstrap/js/bootstrap.min.js"></script>
         <!-- AdminLTE App -->
-        <script src="<?php echo BASE_URL; ?>/assets/dist/js/app.min.js"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/dist/js/app.min.js"></script>
+        <!-- Mascaras padrões -->
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/jquery.mask.js"></script>
+        <!-- Meus Scripts -->
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/script.js"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/script_clients_add.js"></script>
 
         <!-- Optionally, you can add Slimscroll and FastClick plugins.
              Both of these plugins are recommended to enhance the
