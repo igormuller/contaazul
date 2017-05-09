@@ -78,7 +78,7 @@
                                     <span class="label label-success">4</span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="header">You have 4 messages</li>
+                                    <li class="header">Você têm 4 menssagens</li>
                                     <li>
                                         <!-- inner menu: contains the messages -->
                                         <ul class="menu">
@@ -90,18 +90,18 @@
                                                     </div>
                                                     <!-- Message title and timestamp -->
                                                     <h4>
-                                                        Support Team
-                                                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                                        Suporte
+                                                        <small><i class="fa fa-clock-o"></i> 5 min</small>
                                                     </h4>
                                                     <!-- The message -->
-                                                    <p>Why not buy a new awesome theme?</p>
+                                                    <p>Você deve atualizar seus dados?</p>
                                                 </a>
                                             </li>
                                             <!-- end message -->
                                         </ul>
                                         <!-- /.menu -->
                                     </li>
-                                    <li class="footer"><a href="#">See All Messages</a></li>
+                                    <li class="footer"><a href="#">Veja todas as mensagens</a></li>
                                 </ul>
                             </li>
                             <!-- /.messages-menu -->
@@ -114,19 +114,19 @@
                                     <span class="label label-warning">10</span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="header">You have 10 notifications</li>
+                                    <li class="header">Você têm 10 Notificações</li>
                                     <li>
                                         <!-- Inner Menu: contains the notifications -->
                                         <ul class="menu">
                                             <li><!-- start notification -->
                                                 <a href="#">
-                                                    <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                                                    <i class="fa fa-users text-aqua"></i> 5 novos membros ingressaram hoje
                                                 </a>
                                             </li>
                                             <!-- end notification -->
                                         </ul>
                                     </li>
-                                    <li class="footer"><a href="#">View all</a></li>
+                                    <li class="footer"><a href="#">Ver todos</a></li>
                                 </ul>
                             </li>
                             <!-- Tasks Menu -->
@@ -137,7 +137,7 @@
                                     <span class="label label-danger">9</span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="header">You have 9 tasks</li>
+                                    <li class="header">Você têm 9 tarefas</li>
                                     <li>
                                         <!-- Inner menu: contains the tasks -->
                                         <ul class="menu">
@@ -145,14 +145,14 @@
                                                 <a href="#">
                                                     <!-- Task title and progress text -->
                                                     <h3>
-                                                        Design some buttons
+                                                        Atualizar o DNS do cliente XYZ
                                                         <small class="pull-right">20%</small>
                                                     </h3>
                                                     <!-- The progress bar -->
                                                     <div class="progress xs">
                                                         <!-- Change the css width attribute to simulate progress -->
                                                         <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                            <span class="sr-only">20% Complete</span>
+                                                            <span class="sr-only">20% Completo</span>
                                                         </div>
                                                     </div>
                                                 </a>
@@ -161,7 +161,7 @@
                                         </ul>
                                     </li>
                                     <li class="footer">
-                                        <a href="#">View all tasks</a>
+                                        <a href="#">Ver todas as Tarefas</a>
                                     </li>
                                 </ul>
                             </li>
@@ -178,15 +178,15 @@
                                     <!-- The user image in the menu -->
                                     <li class="user-header">
                                         <img src="<?php echo BASE_URL; ?>/assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                                        <p><?php echo $viewData['user_name']; ?> - Web Developer<small>Member since Nov. 2012</small></p>
+                                        <p><?php echo $viewData['user_name']; ?> - Web Developer<small>Membro desde Nov. 2012</small></p>
                                     </li>
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                            <a href="#" class="btn btn-default btn-flat">Perfil</a>
                                         </div>
                                         <div class="pull-right">
-                                            <a href="<?php echo BASE_URL; ?>/login/logout" class="btn btn-default btn-flat">Sign out</a>
+                                            <a href="<?php echo BASE_URL; ?>/login/logout" class="btn btn-default btn-flat">Sair</a>
                                         </div>
                                     </li>
                                 </ul>

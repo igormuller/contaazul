@@ -40,10 +40,10 @@
                                     <td><?php echo $c['stars']; ?></td>
                                     <td>
                                         <?php if ($permission_edit): ?>
-                                            <a href="<?php echo BASE_URL; ?>/client/edit/<?php echo $c['id_user']; ?>" class="btn btn-success"><i class="fa fa-fw fa-pencil-square-o"></i></a>
-                                            <a href="<?php echo BASE_URL; ?>/client/delete/<?php echo $c['id_user']; ?>" class="btn btn-danger" onclick="return confirm('Deseja remover o cliente?')"><i class="fa fa-fw fa-minus-square"></i></a>
+                                            <a href="<?php echo BASE_URL; ?>/client/edit/<?php echo $c['id_client']; ?>" class="btn btn-success"><i class="fa fa-fw fa-pencil-square-o"></i></a>
+                                            <a href="<?php echo BASE_URL; ?>/client/delete/<?php echo $c['id_client']; ?>" class="btn btn-danger" onclick="return confirm('Deseja remover o cliente?')"><i class="fa fa-fw fa-minus-square"></i></a>
                                         <?php else: ?>
-                                            <a href="<?php echo BASE_URL; ?>/client/view/<?php echo $c['id_user']; ?>" class="btn btn-primary"><i class="fa fa-fw fa-eye"></i></a>
+                                            <a href="<?php echo BASE_URL; ?>/client/view/<?php echo $c['id_client']; ?>" class="btn btn-primary"><i class="fa fa-fw fa-eye"></i></a>
                                         <?php endif; ?>
 
 
@@ -53,7 +53,15 @@
                         </table>
                     </div>
                     <div class="box-footer">
-                        footer
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li class="<?php echo ($p=='1')? 'disabled':''; ?>"><a href="<?php echo BASE_URL; ?>/client/?p=1" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                <?php for ($q=1; $q <= $p_count; $q++): ?>
+                                <li class="<?php echo ($q==$p)? 'active':''; ?>"><a href="<?php echo BASE_URL; ?>/client?p=<?php echo $q; ?>"><?php echo $q; ?></a></li>
+                                <?php endfor; ?>
+                                <li class="<?php echo ($p==$p_count)? 'disabled':''; ?>"><a href="<?php echo BASE_URL; ?>/client?p=<?php echo $p_count; ?>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
