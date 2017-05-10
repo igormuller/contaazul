@@ -48,7 +48,16 @@
                                 <td><?php echo "R$ ".number_format($p['price'],2,',','.'); ?></td>
                                 <td><?php echo $p['qtd']; ?></td>
                                 <td><?php echo $p['qtd_min']; ?></td>
-                                <td></td>
+                                <td>
+                                    <?php if ($permission_edit): ?>
+                                        <a href="<?php echo BASE_URL; ?>/inventory/edit/<?php echo $p['id_inventory']; ?>" class="btn btn-success"><i class="fa fa-fw fa-pencil-square-o"></i></a>
+                                        <a href="<?php echo BASE_URL; ?>/inventory/delete/<?php echo $p['id_inventory']; ?>" class="btn btn-danger" onclick="return confirm('Deseja remover o cliente?')"><i class="fa fa-fw fa-minus-square"></i></a>
+                                    <?php else: ?>
+                                        <a href="<?php echo BASE_URL; ?>/inventory/view/<?php echo $p['id_inventory']; ?>" class="btn btn-primary"><i class="fa fa-fw fa-eye"></i></a>
+                                    <?php endif; ?>
+
+
+                                    </td>
                             </tr>
                             <?php endforeach; ?>
                         </table>

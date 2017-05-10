@@ -30,6 +30,29 @@ class Inventory extends model {
 		$sql->bindValue(":id_user", $id_user);
 		$sql->bindValue(":action", "add");
 		$sql->execute();
+	}
 
+	public function getInventoryById($id_inventory) {
+		$sql = $this->db->prepare("SELECT * FROM inventory WHERE id_inventory = :id_inventory");
+		$sql->bindValue(":id_inventory", $id_inventory);
+		$sql->execute();
+
+		$array = array();
+		if ($sql->rowCount() > 0) {
+			$array = $sql->fetch();
+		}
+		return $array;
+	}
+
+	public function getCompany($id_inventory) {
+		$sql = $this->db->prepare("SELECT id_company FROM inventory WHERE id_inventory = :id_inventory");
+		$sql->bindValue(":id_inventory", $id_inventory);
+		$sql->execute();
+
+		$aid_company = array();
+		if ($sql->rowCount() > 0) {
+			$id_company = $sql->fetch()['id_company'];
+		}
+		return $id_company;
 	}
 }

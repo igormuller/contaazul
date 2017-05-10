@@ -59,4 +59,35 @@ class inventoryController extends controller {
         }
     }
 
+    public function edit($id_inventory) {
+        $data = array();
+        $user = new User();
+        $user->setLoggedUser();
+        $data['user_name'] = $user->getName();
+        $company = new Company($user->getCompany());
+        $data['company_name'] = $company->getName();
+
+        if ($user->hasPermission("INVENTORY_EDIT")) {
+            $i = new Inventory();
+
+            if ($user->getCompany() == $i->getCompany($id_inventory)) {
+                if (isset($_POST['name']) && !empty($_POST['name'])) {
+                    $name = addslashes($_POST['name']);
+                    $price = str_replace(',', '.', $_POST['price']);
+                    $qtd = $_POST['qtd'];
+                    $qtd_min = $_POST['qtd_min'];
+
+                    $i->update($user->getCompany(), $name, $price, $qtd, $qtd_min, $user->getId());
+                    header("Location: ".BASE_URL."/inventory");
+                }
+                $data['inventory_info'] = $i->getInventoryById($id_inventory);
+                $this->loadTemplate("inventoryEdit", $data);
+            } else {
+                header("Location: ".BASE_URL."/erro/permission");
+            }
+        } else {
+            header("Location: ".BASE_URL."/erro/permission");
+        }
+    }
+
 }
