@@ -1,6 +1,21 @@
-body {
-    width: 100%;
-    max-width: 1024px;
-    margin: auto;
+.searchresults {
+	width: 250px;
+	background-color: #FFF;
+	position: absolute;
+	border: 1px solid #CCC;
+}
 
+.si {
+	height: 25px;
+	line-height: 25px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+.si a {
+	color: #000;
+	text-decoration: none;
+	display: block;
+}
+.si:hover {
+	background-color: #EEE;
 }

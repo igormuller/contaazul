@@ -19,6 +19,7 @@
               apply the skin class to the body tag so the changes take effect.
         -->
         <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/dist/css/skins/skin-blue.min.css">
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -243,6 +244,9 @@
                         <li class="<?php echo (in_array("client",$url))? "active":""; ?>">
                             <a href="<?php echo BASE_URL; ?>/client"><i class="fa fa-street-view"></i> <span>Clientes</span></a>
                         </li>
+                        <li class="<?php echo (in_array("inventory",$url))? "active":""; ?>">
+                            <a href="<?php echo BASE_URL; ?>/inventory"><i class="fa fa-download"></i> <span>Estoque</span></a>
+                        </li>
                         <li class="treeview">
                             <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
                                 <span class="pull-right-container">
@@ -310,8 +314,8 @@
 
         <!-- REQUIRED JS SCRIPTS -->
 
-        <!-- jQuery 2.2.3 -->
-        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/jquery-2.2.3.min.js"></script>
+        <!-- jQuery 3.2.1 -->
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/jquery-3.2.1.min.js"></script>
         <!-- Bootstrap 3.3.6 -->
         <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/bootstrap/js/bootstrap.min.js"></script>
         <!-- AdminLTE App -->
@@ -319,6 +323,7 @@
         <!-- Mascaras padrões -->
         <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/jquery.mask.js"></script>
         <!-- Meus Scripts -->
+        <script type="text/javascript">var BASE_URL = '<?php echo BASE_URL; ?>'</script>
         <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/script.js"></script>
         <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/script_clients_add.js"></script>
 

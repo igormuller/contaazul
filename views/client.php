@@ -19,9 +19,19 @@
                         <h3 class="box-title">Clientes</h3>
                     </div>
                     <div class="box-body">
-                        <?php if ($permission_edit): ?>
-                        <p><a href="<?php echo BASE_URL; ?>/client/add" class="btn btn-success" data-toggle="modal">Adicionar Cliente</a></p>
-                        <?php endif; ?>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <?php if ($permission_edit): ?>
+                                <p><a href="<?php echo BASE_URL; ?>/client/add" class="btn btn-success" data-toggle="modal">Adicionar Cliente</a></p>
+                                <?php endif; ?>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" id="busca" class="form-control" placeholder="Procurar..." data-type="search_client" />
+                                    <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                                </div>
+                            </div>
+                        </div>
                         <table class="table table-bordered">
                             <tr>
                                 <th>#</th>

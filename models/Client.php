@@ -90,5 +90,18 @@ class Client extends model {
         return $id_company;
     }
 
+    public function searchClientByName($name, $id_company) {
+        $sql = $this->db->prepare("SELECT id_client, name FROM client WHERE name LIKE :name AND id_company = :id_company LIMIT 15");
+        $sql->bindValue(":name", '%'.$name.'%');
+        $sql->bindValue(":id_company", $id_company);
+        $sql->execute();
+
+        $array = array();
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }
+        return $array;
+    }
+
 
 }

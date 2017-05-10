@@ -139,8 +139,7 @@ class User extends model {
             $array = $sql->fetchAll();
         }
         return $array;
-    }
-   
+    }   
 
     public function getCompany($id_user = '') {
         
@@ -166,6 +165,14 @@ class User extends model {
     public function getName() {
         if (isset($this->userInfo['name'])) {
             return $this->userInfo['name'];
+        } else {
+            return 0;
+        }
+    }
+
+    public function getId() {
+        if (isset($this->userInfo['id_user'])) {
+            return $this->userInfo['id_user'];
         } else {
             return 0;
         }
