@@ -23,17 +23,39 @@ class ajaxController extends controller {
     	if (isset($_GET['s']) && !empty($_GET['s'])) {
     		$s = addslashes($_GET['s']);
 
-    		$clients = $c->searchClientByName($s,$user->getCompany());
+    		$temp = $c->searchByName($s,$user->getCompany());
 
-    		foreach ($clients as $citem) {
+    		foreach ($temp as $titem) {
     			$data[] = array(
-    				'name' => $citem['name'],
-    				'link' => BASE_URL.'/client/edit/'.$citem['id_client']
+    				'name' => $titem['name'],
+    				'link' => BASE_URL.'/client/edit/'.$titem['id_client']
     			);
     		}
     		
     	}
     	echo json_encode($data);
+    }
+
+    public function search_inventory() {
+        $data = array();
+        $user = new User();
+        $user->setLoggedUser();
+        $i = new Inventory();
+
+        if (isset($_GET['s']) && !empty($_GET['s'])) {
+            $s = addslashes($_GET['s']);
+
+            $temp = $i->searchByName($s,$user->getCompany());
+
+            foreach ($temp as $titem) {
+                $data[] = array(
+                    'name' => $titem['name'],
+                    'link' => BASE_URL.'/inventory/edit/'.$titem['id_inventory']
+                );
+            }            
+        }
+
+        echo json_encode($data);
     }
 }
 ?>

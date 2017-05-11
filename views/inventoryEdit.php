@@ -29,9 +29,6 @@
             <div class="col-md-12">
                 <div class="box box-primary">
                     <form method="POST">
-                        <div class="box-header">
-                            <h3 class="box-title">Editar produto</h3>
-                        </div>
                         <div class="box-body">
                             <div class="form-group">
                                 <label>Nome: </label>

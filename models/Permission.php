@@ -48,6 +48,14 @@ class Permission extends model {
         $sql->bindValue(":id_company", $id_company);
         $sql->execute();
     }
+
+    public function editPermission($name, $id_permission_param, $id_company) {
+        $sql = $this->db->prepare("UPDATE permission_param SET name = :name WHERE id_permission_param = :id_permission_param AND id_company = :id_company");
+        $sql->bindValue(":name", $name);
+        $sql->bindValue(":id_permission_param", $id_permission_param);
+        $sql->bindValue(":id_company", $id_company);
+        $sql->execute();
+    }
     
     public function deletePermission($id_permission_param) {
         $sql = $this->db->prepare("DELETE FROM permission_param WHERE id_permission_param = :id_permission_param");

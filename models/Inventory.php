@@ -44,6 +44,19 @@ class Inventory extends model {
 		return $array;
 	}
 
+	public function searchByName($name, $id_company) {
+		$sql = $this->db->prepare("SELECT id_inventory, name FROM inventory WHERE name LIKE :name AND id_company = :id_company");
+		$sql->bindValue(":name", '%'.$name.'%');
+		$sql->bindValue(":id_company", $id_company);
+		$sql->execute();
+
+		$array = array();
+		if ($sql->rowCount() > 0) {
+			$array = $sql->fetchAll();
+		}
+		return $array;
+	}
+
 	public function getCompany($id_inventory) {
 		$sql = $this->db->prepare("SELECT id_company FROM inventory WHERE id_inventory = :id_inventory");
 		$sql->bindValue(":id_inventory", $id_inventory);

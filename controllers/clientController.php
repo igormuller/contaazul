@@ -102,7 +102,8 @@ class clientController extends controller {
                     $stars = addslashes($_POST['stars']);
                     $internal_obs = addslashes($_POST['internal_obs']);
                     $c->update($user->getCompany(),$name,$email,$phone,$address_zipcode,$address,$address_number,$address_comp,$address_neigh,$address_city,$address_state,$address_country,$stars,$internal_obs,$id_client);
-                    $data['error_info'] = "Cliente editado com sucesso!";
+                    header("Location: ".BASE_URL."/client");
+                    //$data['error_info'] = "Cliente editado com sucesso!";
                 }
                 $data['client_info'] = $c->getClientById($id_client, $user->getCompany());
                 $this->loadTemplate("clientEdit", $data);

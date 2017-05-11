@@ -66,9 +66,34 @@
                                     <td><?php echo $p['id_permission_param']; ?></td>
                                     <td><?php echo $p['name']; ?></td>
                                     <td>
-                                        <a href="<?php echo BASE_URL; ?>/permission/editPermission/<?php echo $p['id_permission_param']; ?>" class="btn btn-success"><i class="fa fa-fw fa-pencil-square-o"></i></a>
+                                        <a href="#modalEditPermission<?php echo $p['id_permission_param']; ?>" class="btn btn-success" data-toggle="modal"><i class="fa fa-fw fa-pencil-square-o"></i></a>
                                         <a href="<?php echo BASE_URL; ?>/permission/deletePermission/<?php echo $p['id_permission_param']; ?>" class="btn btn-danger" onclick="return confirm('Deseja remover a permissão?')"><i class="fa fa-fw fa-minus-square"></i></a>
                                     </td>
+                                    <!--**************Modal Editar**************-->
+                                    <div class="modal fade" id="modalEditPermission<?php echo $p['id_permission_param']; ?>">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <form method="POST">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="close"><span aria-hidden="true">x</span></button>
+                                                        <h3 class="modal-title">Editar Permissão</h3>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <input type="hidden" name="id_permission_param" value="<?php echo $p['id_permission_param']; ?>" />
+                                                            <label>Permissão:</label>
+                                                            <input type="text" name="permission_edit" value="<?php echo $p['name']; ?>" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Fechar</button>
+                                                        <input type="submit" value="Salvar" class="btn btn-primary" />
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--**************Fim Modal Editar**************-->
                                 </tr>
                                 <?php endforeach; ?>
                             </table>

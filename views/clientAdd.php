@@ -29,13 +29,10 @@
             <div class="col-md-12">
                 <div class="box box-primary">
                     <form method="POST">
-                        <div class="box-header">
-                            <h3 class="box-title">Adiconar Cliente</h3>
-                        </div>
                         <div class="box-body">
                             <div class="form-group">
                                 <label>Nome: </label>
-                                <input type="text" name="name" class="form-control" required />
+                                <input type="text" name="name" class="form-control" autofocus required />
                             </div>
                             <div class="form-group">
                                 <label>E-mail: </label>

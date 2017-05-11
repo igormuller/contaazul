@@ -29,13 +29,10 @@
             <div class="col-md-12">
                 <div class="box box-primary">
                     <form method="POST">
-                        <div class="box-header">
-                            <h3 class="box-title">Editar Cliente</h3>
-                        </div>
                         <div class="box-body">
                             <div class="form-group">
                                 <label>Nome: </label>
-                                <input type="text" name="name" class="form-control" value="<?php echo $client_info['name']; ?>" required />
+                                <input type="text" name="name" class="form-control" value="<?php echo $client_info['name']; ?>" autofocus required />
                             </div>
                             <div class="form-group">
                                 <label>E-mail: </label>

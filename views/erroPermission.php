@@ -6,7 +6,7 @@
             Sem Permissão
         </h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo BASE_URL; ?>"<i class="fa fa-home"></i> Home</a></li>
+            <li><a href="<?php echo BASE_URL; ?>"><i class="fa fa-home"></i> Home</a></li>
             <li class="active">Erros</li>
             <li class="active">Permissão</li>
         </ol>

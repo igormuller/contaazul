@@ -41,8 +41,8 @@ $(function () {
 
                     var html = '';
 
-                    for(var iclient in json) {
-                        html += '<div class="si"><a href="'+json[iclient].link+'">'+json[iclient].name+'</a></div>';
+                    for(var i in json) {
+                        html += '<div class="si"><a href="'+json[i].link+'">'+json[i].name+'</a></div>';
                     }
 
                     $('.searchresults').html(html);

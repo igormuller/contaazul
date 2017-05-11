@@ -26,6 +26,12 @@ class permissionController extends controller {
                 $pname = addslashes($_POST['permission_add']);
                 $permission->addPermission($pname, $user->getCompany());
             }
+            //Se Editado uma permissão
+            if (isset($_POST['permission_edit']) && !empty($_POST['permission_edit'])) {
+                $pname = addslashes($_POST['permission_edit']);
+                $pid = addslashes($_POST['id_permission_param']);
+                $permission->editPermission($pname, $pid, $user->getCompany());               
+            }
             //Se informado novo Grupo de permissões
             if (isset($_POST['permission_group_add']) && !empty($_POST['permission_group_add'])) {
                 $pgname = addslashes($_POST['permission_group_add']);

@@ -15,9 +15,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-primary">
-                    <div class="box-header">
-                        <h3 class="box-title">Usuários</h3>
-                    </div>
                     <div class="box-body">
                         <p><a href="<?php echo BASE_URL; ?>/user/add" class="btn btn-success" data-toggle="modal">Adicionar Usuário</a></p>
                         <table class="table table-bordered">
