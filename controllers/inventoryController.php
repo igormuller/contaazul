@@ -22,8 +22,19 @@ class inventoryController extends controller {
             $i = new Inventory();
 
             $offset = 0;
+            $data['p'] = 1;
+            if (isset($_GET['p']) && !empty($_GET['p'])) {
+                $data['p'] = intval($_GET['p']);
+                if ($data['p'] == 0) {
+                    $data['p'] = 1;
+                }
+            }
+
+            $offset = (10 * ($data['p'] - 1));
+
             $data['inventory_list'] = $i->getList($offset, $user->getCompany());
-            
+            $data['inventory_count'] = $i->getCount($user->getCompany());
+            $data['p_count'] = ceil($data['inventory_count'] / 10);
             $data['permission_edit'] = $user->hasPermission("INVENTORY_EDIT");
             $data['permission_add'] = $user->hasPermission("INVENTORY_ADD");
             $this->loadTemplate("inventory", $data);
@@ -77,7 +88,7 @@ class inventoryController extends controller {
                     $qtd = $_POST['qtd'];
                     $qtd_min = $_POST['qtd_min'];
 
-                    $i->update($user->getCompany(), $name, $price, $qtd, $qtd_min, $user->getId());
+                    $i->edit($id_inventory, $user->getCompany(), $name, $price, $qtd, $qtd_min, $user->getId());
                     header("Location: ".BASE_URL."/inventory");
                 }
                 $data['inventory_info'] = $i->getInventoryById($id_inventory);
@@ -87,6 +98,20 @@ class inventoryController extends controller {
             }
         } else {
             header("Location: ".BASE_URL."/erro/permission");
+        }
+    }
+
+    public function delete($id_inventory) {
+        $user = new User();
+        $user->setLoggedUser();
+
+        if ($user->hasPermission("INVENTORY_EDIT")) {
+            $i = new Inventory();
+
+            if ($user->getCompany() == $i->getCompany($id_inventory)) {
+                $i->delete($id_inventory, $user->getCompany(), $user->getId());
+                header("Location: ".BASE_URL."/inventory");
+            }
         }
     }
 

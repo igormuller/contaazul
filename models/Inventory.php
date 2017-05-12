@@ -24,13 +24,50 @@ class Inventory extends model {
 		$sql->execute();
 
 		$id_product = $this->db->lastInsertId();
+		$this->setLog($id_company, $id_product, $id_user, 'add');
+	}
+
+	public function edit($id_inventory, $id_company, $name, $price, $qtd, $qtd_min, $id_user) {
+		$sql = $this->db->prepare("UPDATE inventory SET name = :name, price = :price, qtd = :qtd, qtd_min = :qtd_min WHERE id_inventory = :id_inventory AND id_company = :id_company");
+		$sql->bindValue(":id_inventory", $id_inventory);
+		$sql->bindValue(":id_company", $id_company);
+		$sql->bindValue(":name", $name);
+		$sql->bindValue(":price", $price);
+		$sql->bindValue(":qtd", $qtd);
+		$sql->bindValue(":qtd_min", $qtd_min);
+		$sql->execute();
+
+		$this->setLog($id_company, $id_inventory, $id_user, 'edt');
+	}
+
+	public function delete($id_inventory, $id_company, $id_user) {
+		$sql = $this->db->prepare("DELETE FROM inventory WHERE id_inventory = :id_inventory AND id_company = :id_company");
+		$sql->bindValue(":id_inventory", $id_inventory);
+		$sql->bindValue(":id_company", $id_company);
+		$sql->execute();
+
+		$this->setLog($id_company, $id_inventory, $id_user, 'del');
+	}
+
+	public function setLog($id_company, $id_product, $id_user, $action) {
 		$sql = $this->db->prepare("INSERT INTO inventory_history SET id_company = :id_company, id_product = :id_product, id_user = :id_user, action = :action, date_action = NOW()");
 		$sql->bindValue(":id_company", $id_company);
 		$sql->bindValue(":id_product", $id_product);
 		$sql->bindValue(":id_user", $id_user);
-		$sql->bindValue(":action", "add");
+		$sql->bindValue(":action", $action);
 		$sql->execute();
 	}
+
+	public function getCount($id_company) {
+        $sql = $this->db->prepare("SELECT COUNT(*) AS c FROM inventory WHERE id_company = :id_company");
+        $sql->bindValue(":id_company", $id_company);
+        $sql->execute();
+
+        $r = 0;
+        $row = $sql->fetch();
+        $r = $row['c'];
+        return $r;
+    }
 
 	public function getInventoryById($id_inventory) {
 		$sql = $this->db->prepare("SELECT * FROM inventory WHERE id_inventory = :id_inventory");
