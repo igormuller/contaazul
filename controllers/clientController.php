@@ -20,8 +20,8 @@ class clientController extends controller {
 
         if ($user->hasPermission("CLIENT_VIEW")) {
             $c = new Client();
-            $offset = 0;
 
+            //Código paginação
             $data['p'] = 1;
             if (isset($_GET['p']) && !empty($_GET['p'])) {
                 $data['p'] = intval($_GET['p']);
@@ -29,12 +29,12 @@ class clientController extends controller {
                     $data['p'] = 1;
                 }
             }
-
             $offset = (10 * ($data['p'] - 1));
-
-            $data['client_list'] = $c->getList($offset, $user->getCompany());
             $data['client_count'] = $c->getCount($user->getCompany());
             $data['p_count'] = ceil($data['client_count'] / 10);
+            //Fim Paginação
+
+            $data['client_list'] = $c->getList($offset, $user->getCompany());
             $data['permission_edit'] = $user->hasPermission("CLIENT_EDIT");
             $this->loadTemplate("client", $data);
         } else {
@@ -102,8 +102,8 @@ class clientController extends controller {
                     $stars = addslashes($_POST['stars']);
                     $internal_obs = addslashes($_POST['internal_obs']);
                     $c->update($user->getCompany(),$name,$email,$phone,$address_zipcode,$address,$address_number,$address_comp,$address_neigh,$address_city,$address_state,$address_country,$stars,$internal_obs,$id_client);
-                    header("Location: ".BASE_URL."/client");
-                    //$data['error_info'] = "Cliente editado com sucesso!";
+                    //header("Location: ".BASE_URL."/client");
+                    $data['error_info'] = "Cliente editado com sucesso!";
                 }
                 $data['client_info'] = $c->getClientById($id_client, $user->getCompany());
                 $this->loadTemplate("clientEdit", $data);

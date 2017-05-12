@@ -15,7 +15,7 @@ class Client extends model {
 
     }
 
-    public function add($id_company,$name,$email,$phone,$address_zipcode,$address,$address_number,$address_comp,$address_neigh,$address_city,$address_state,$address_country,$stars,$internal_obs) {
+    public function add($id_company,$name,$email = '',$phone = '',$address_zipcode = '',$address = '',$address_number = '',$address_comp = '',$address_neigh = '',$address_city = '',$address_state = '',$address_country = '',$stars = '3',$internal_obs = '') {
         $sql = $this->db->prepare("INSERT INTO client SET name = :name, email = :email, phone = :phone, address_zipcode = :address_zipcode, address = :address, address_number = :address_number, address_comp = :address_comp, address_neigh = :address_neigh, address_city = :address_city, address_state = :address_state, address_country = :address_country, stars = :stars, internal_obs = :internal_obs, id_company = :id_company");
         $sql->bindValue(":name", $name);
         $sql->bindValue(":email", $email);
@@ -32,6 +32,8 @@ class Client extends model {
         $sql->bindValue(":internal_obs", $internal_obs);
         $sql->bindValue(":id_company", $id_company);
         $sql->execute();
+
+        return $this->db->lastInsertId();
     }
 
     public function update($id_company,$name,$email,$phone,$address_zipcode,$address,$address_number,$address_comp,$address_neigh,$address_city,$address_state,$address_country,$stars,$internal_obs,$id_client) {
@@ -72,7 +74,6 @@ class Client extends model {
         $sql->bindValue(":id_company", $id_company);
         $sql->execute();
 
-        $r = 0;
         $row = $sql->fetch();
         $r = $row['c'];
         return $r;

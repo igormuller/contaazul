@@ -28,7 +28,8 @@ class ajaxController extends controller {
     		foreach ($temp as $titem) {
     			$data[] = array(
     				'name' => $titem['name'],
-    				'link' => BASE_URL.'/client/edit/'.$titem['id_client']
+    				'link' => BASE_URL.'/client/edit/'.$titem['id_client'],
+                    'id' => $titem['id_client']
     			);
     		}
     		
@@ -55,6 +56,21 @@ class ajaxController extends controller {
             }            
         }
 
+        echo json_encode($data);
+    }
+
+    public function add_client() {
+        $data = array();
+        $user = new User();
+        $user->setLoggedUser();
+        $c = new Client();
+
+        if (isset($_POST['name']) && !empty($_POST['name'])) {
+            $name = addslashes($_POST['name']);
+
+            $data['id'] = $c->add($user->getCompany(), $name);
+
+        }
         echo json_encode($data);
     }
 }
