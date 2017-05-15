@@ -54,6 +54,17 @@ class saleController extends controller
         if ($user->hasPermission("SALE_EDIT")) {
             $sale = new Sale();
 
+            if (isset($_POST['client_id']) && !empty($_POST['client_id'])) {
+                $client_id = addslashes($_POST['client_id']);
+                $status = addslashes($_POST['status']);
+                $total_price = str_replace(',','.',$_POST['total_price']);
+                $date_sale = str_replace("/","-",$_POST['date_sale']);
+                $date_sale = date("Y-m-d",strtotime($date_sale));
+
+                $sale->add($user->getCompany(), $user->getId(), $client_id, $date_sale,$status,$total_price);
+                header("Location: ".BASE_URL."/sale");
+            }
+
 
             $data['permission_edit'] = $user->hasPermission("SALE_EDIT");
             $this->loadTemplate("saleAdd", $data);

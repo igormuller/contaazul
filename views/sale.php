@@ -42,7 +42,7 @@
                             <tr>
                                 <td><?php echo $sitem['id_sale']; ?></td>
                                 <td><?php echo $sitem['name']; ?></td>
-                                <td><?php echo date('d/m/Y', strtotime($sitem['id_sale'])); ?></td>
+                                <td><?php echo date('d/m/Y', strtotime($sitem['date_sale'])); ?></td>
                                 <td><?php echo $sitem['status']; ?></td>
                                 <td>R$ <?php echo number_format($sitem['total_price'],2,',','.'); ?></td>
                             </tr>

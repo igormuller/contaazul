@@ -16,12 +16,14 @@ $(function () {
     $('.cpf').mask('000.000.000-00');
     $('.money').mask('0000000000,00', {reverse: true});
 
-    $('#busca').on('blur', function(){
+    //Search Client in View client.php
+    $('#id_search_client').on('blur', function(){
         setTimeout(function(){
             $('.searchresults').hide();
         }, 500);
     });
-    $('#busca').on('keyup', function(){
+
+    $('#id_search_client').on('keyup', function(){
         var datatype = $(this).attr('data-type');
         var q = $(this).val();
         if (datatype != '') {
@@ -32,7 +34,7 @@ $(function () {
                 dataType:'json',
                 success:function(json) {
                     if ($('.searchresults').length == 0) {
-                        $('#busca').after('<div class="searchresults"></div>');
+                        $('#id_search_client').after('<div class="searchresults"></div>');
                     }
 
                     
@@ -50,13 +52,15 @@ $(function () {
             });
         }        
     });
+    //Search Client in View client.php
 
-    $('#buscaAdd').on('blur', function(){
+    //Search Client and Add Client in View saleAdd.php
+    $('#client_add').on('blur', function(){
         setTimeout(function(){
             $('.searchresults').hide();
         }, 500);
     });
-    $('#buscaAdd').on('keyup', function(){
+    $('#client_add').on('keyup', function(){
         var datatype = $(this).attr('data-type');
         var q = $(this).val();
         if (datatype != '') {
@@ -67,7 +71,7 @@ $(function () {
                 dataType:'json',
                 success:function(json) {
                     if ($('.searchresults').length == 0) {
-                        $('#buscaAdd').after('<div class="searchresults"></div>');
+                        $('#client_add').after('<div class="searchresults"></div>');
                     }
 
                     $('.searchresults').css('top', '35px');
@@ -83,9 +87,9 @@ $(function () {
             });
         }
     });
-
+    //Add Client in ajaxController.php
     $('.client_add_button').on('click', function (){
-        var name = $('#buscaAdd').val();
+        var name = $('#client_add').val();
         if (name != '' && name.length >= 3){
             if (confirm('Você deseja adicionar um cliente com o nome: '+name+'?')) {
                 $.ajax({
@@ -95,19 +99,83 @@ $(function () {
                     dataType:'json',
                     success:function (json) {
                         $('.searchresults').hide();
-                        $('#buscaAdd').attr('data-id', json.id);
+                        $('input[name=client_id').val(json.id);
                     }
                 })
             }
         }
     });
+    //Search Client and Add Client in View saleAdd.php
+
+    //Search Product and Add Product in View saleAdd.php
+    $('#product_add').on('blur', function(){
+        setTimeout(function(){
+            $('.searchresults_product').hide();
+        }, 500);
+    });
+    $('#product_add').on('keyup', function(){
+        var datatype = $(this).attr('data-type');
+        var q = $(this).val();
+        if (datatype != '') {
+            $.ajax({
+                url:BASE_URL+'/ajax/'+datatype,
+                type:'GET',
+                data:{s:q},
+                dataType:'json',
+                success:function(json) {
+                    if ($('.searchresults_product').length == 0) {
+                        $('#product_add').after('<div class="searchresults_product"></div>');
+                    }
+
+                    $('.searchresults_product').css('top', '35px');
+
+                    var html = '';
+                    for(var i in json) {
+                        html += '<div class="si"><a href="javascript:;" onclick="selectProduct(this)" data-id="'+json[i].id+'">'+json[i].name+'</a></div>';
+                    }
+
+                    $('.searchresults_product').html(html);
+                    $('.searchresults_product').show();
+                }
+            });
+        }
+    });
+    //Add product in sale
+    $('.product_add_button').on('click', function (){
+        var name = $('#product_add').val();
+        if (name != '' && name.length > 3){
+            $.ajax({
+                url:BASE_URL+'/ajax/add_product_sale',
+                type:'POST',
+                data:{name:name},
+                dataType:'json',
+                success:function (json) {
+                    $('.searchresults_product').hide();
+                    $('input[name=product_id').val(json.id);
+                }
+            })
+        }
+    });
+    //Search Product and Add Product in View saleAdd.php
 
 });
 
+//Search Product and Add Product in View saleAdd.php
+function selectProduct(obj) {
+    var id = $(obj).attr('data-id');
+    var name = $(obj).html();
+    $('.searchresults_product').hide();
+    $('#product_add').val(name);
+    $('input[name=product_id').val(id);
+}
+//Search Product and Add Product in View saleAdd.php
+
+//Search Client and Add Client in View saleAdd.php
 function selectClient(obj) {
     var id = $(obj).attr('data-id');
     var name = $(obj).html();
     $('.searchresults').hide();
-    $('#buscaAdd').val(name);
-    $('#buscaAdd').attr('data-id', id);
+    $('#client_add').val(name);
+    $('input[name=client_id').val(id);
 }
+//Search Client and Add Client in View saleAdd.php

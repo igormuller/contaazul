@@ -33,24 +33,48 @@
                             <div class="form-group">
                                 <label>Cliente: </label>
                                 <div class="input-group">
-                                    <input type="text" id="buscaAdd" class="form-control" data-type="search_client" />
+                                    <input type="hidden" name="client_id" />
+                                    <input type="text" id="client_add" name="nameClient" class="form-control" data-type="search_client" />
                                     <div class="input-group-addon"><a href="javascript:;" class="client_add_button"><i class="fa fa-plus"></i> <strong>Adicionar Cliente</strong></a></div>
                                 </div>
 
                             </div>
                             <div class="form-group">
                                 <label>Data da venda: </label>
-                                <input type="text" name="data_sale" class="form-control date" required />
+                                <input type="text" name="date_sale" class="form-control date" placeholder="dd/mm/YYYY" required />
                             </div>
                             <div class="form-group">
                                 <label>Status: </label>
-                                <select name="stars" class="form-control">
+                                <select name="status" class="form-control">
                                     <option value="1">Nova</option>
                                     <option value="2">Em aprovação</option>
                                     <option value="3">Concluida</option>
                                     <option value="4">Cancelada</option>
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label>Preço da venda: </label>
+                                <input type="text" name="total_price" class="form-control money" disabled />
+                            </div>
+                            <hr>
+                            <fieldset>
+                                <legend><h4>Produtos</h4></legend>
+                                <div class="input-group">
+                                    <input type="hidden" name="product_id" />
+                                    <input type="text" id="product_add" class="form-control" placeholder="Procurar..." data-type="search_inventory" />
+                                    <div class="input-group-addon"><a href="javascript:;" class="product_add_button"><i class="fa fa-plus"></i> <strong>Adicionar Produto</strong></a></div>
+                                </div>
+                            </fieldset>
+                            <table class="table table-condensed">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Produto</th>
+                                    <th>Preço Unit.</th>
+                                    <th>Quantidade</th>
+                                    <th>Sub-Total</th>
+                                </tr>
+                            </table>
+                            <hr>
                         </div>
                         <div class="box-footer">
                             <input type="submit" value="Salvar" class="btn btn-success" />
