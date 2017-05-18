@@ -53,11 +53,11 @@
                     <div class="box-footer">
                         <nav aria-label="Page navigation">
                             <ul class="pagination">
-                                <li class="<?php echo ($p=='1')? 'disabled':''; ?>"><a href="<?php echo BASE_URL; ?>/client/?p=1" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                <li class="<?php echo ($p=='1')? 'disabled':''; ?>"><a href="<?php echo BASE_URL; ?>/sale?p=1" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
                                 <?php for ($q=1; $q <= $p_count; $q++): ?>
-                                    <li class="<?php echo ($q==$p)? 'active':''; ?>"><a href="<?php echo BASE_URL; ?>/client?p=<?php echo $q; ?>"><?php echo $q; ?></a></li>
+                                    <li class="<?php echo ($q==$p)? 'active':''; ?>"><a href="<?php echo BASE_URL; ?>/sale?p=<?php echo $q; ?>"><?php echo $q; ?></a></li>
                                 <?php endfor; ?>
-                                <li class="<?php echo ($p==$p_count)? 'disabled':''; ?>"><a href="<?php echo BASE_URL; ?>/client?p=<?php echo $p_count; ?>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                                <li class="<?php echo ($p==$p_count)? 'disabled':''; ?>"><a href="<?php echo BASE_URL; ?>/sale?p=<?php echo $p_count; ?>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
                             </ul>
                         </nav>
                     </div>
