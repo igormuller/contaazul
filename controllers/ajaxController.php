@@ -52,7 +52,8 @@ class ajaxController extends controller {
                 $data[] = array(
                     'name' => $titem['name'],
                     'link' => BASE_URL.'/inventory/edit/'.$titem['id_inventory'],
-                    'id'   => $titem['id_inventory']
+                    'id'   => $titem['id_inventory'],
+                    'price' => $titem['price']
                 );
             }            
         }
@@ -75,10 +76,5 @@ class ajaxController extends controller {
         echo json_encode($data);
     }
 
-    public function add_product_sale() {
-        if (isset($_POST['name']) && !empty($_POST['name'])) {
-            echo $_POST['name'];
-        }
-    }
 }
 ?>

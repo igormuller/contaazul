@@ -82,7 +82,7 @@ class Inventory extends model {
 	}
 
 	public function searchByName($name, $id_company) {
-		$sql = $this->db->prepare("SELECT id_inventory, name FROM inventory WHERE name LIKE :name AND id_company = :id_company");
+		$sql = $this->db->prepare("SELECT * FROM inventory WHERE name LIKE :name AND id_company = :id_company LIMIT 15");
 		$sql->bindValue(":name", '%'.$name.'%');
 		$sql->bindValue(":id_company", $id_company);
 		$sql->execute();

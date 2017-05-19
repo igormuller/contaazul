@@ -35,7 +35,7 @@
                                 <div class="input-group">
                                     <input type="hidden" name="client_id" />
                                     <input type="text" id="client_add" name="nameClient" class="form-control" data-type="search_client" />
-                                    <div class="input-group-addon"><a href="javascript:;" class="client_add_button"><i class="fa fa-plus"></i> <strong>Adicionar Cliente</strong></a></div>
+                                    <div class="input-group-addon"><a href="javascript:;" class="client_add_button"><i class="fa fa-plus"></i> <strong>Adicionar Cliente Novo</strong></a></div>
                                 </div>
 
                             </div>
@@ -61,17 +61,20 @@
                                 <legend><h4>Produtos</h4></legend>
                                 <div class="input-group">
                                     <input type="hidden" name="product_id" />
+                                    <input type="hidden" name="product_name" />
+                                    <input type="hidden" name="product_price" />
                                     <input type="text" id="product_add" class="form-control" placeholder="Procurar..." data-type="search_inventory" />
-                                    <div class="input-group-addon"><a href="javascript:;" class="product_add_button"><i class="fa fa-plus"></i> <strong>Adicionar Produto</strong></a></div>
+                                    <div class="input-group-addon"><a href="javascript:;" class="product_add_button"><i class="fa fa-plus"></i> <strong>Adicionar Produto na Venda</strong></a></div>
                                 </div>
                             </fieldset>
-                            <table class="table table-condensed">
+                            <table class="table table-condensed" id="products_table">
                                 <tr>
                                     <th>#</th>
                                     <th>Produto</th>
                                     <th>Preço Unit.</th>
                                     <th>Quantidade</th>
                                     <th>Sub-Total</th>
+                                    <th>Ações</th>
                                 </tr>
                             </table>
                             <hr>

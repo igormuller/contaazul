@@ -78,7 +78,7 @@ $(function () {
 
                     var html = '';
                     for(var i in json) {
-                        html += '<div class="si"><a href="javascript:;" onclick="selectClient(this)" data-id="'+json[i].id+'">'+json[i].name+'</a></div>';
+                        html += '<div class="searchitemclient"><a href="javascript:;" onclick="selectClient(this)" data-id="'+json[i].id+'">'+json[i].name+'</a></div>';
                     }
 
                     $('.searchresults').html(html);
@@ -131,7 +131,7 @@ $(function () {
 
                     var html = '';
                     for(var i in json) {
-                        html += '<div class="si"><a href="javascript:;" onclick="selectProduct(this)" data-id="'+json[i].id+'">'+json[i].name+'</a></div>';
+                        html += '<div class="searchitemproduct"><a href="javascript:;" onclick="selectProduct(this)" data-id="'+json[i].id+'" data-price="'+json[i].price+'" data-name="'+json[i].name+'">'+json[i].name+' - R$'+json[i].price+'</a></div>';
                     }
 
                     $('.searchresults_product').html(html);
@@ -142,19 +142,32 @@ $(function () {
     });
     //Add product in sale
     $('.product_add_button').on('click', function (){
-        var name = $('#product_add').val();
-        if (name != '' && name.length > 3){
-            $.ajax({
-                url:BASE_URL+'/ajax/add_product_sale',
-                type:'POST',
-                data:{name:name},
-                dataType:'json',
-                success:function (json) {
-                    $('.searchresults_product').hide();
-                    $('input[name=product_id').val(json.id);
-                }
-            })
+        var id = $('input[name=product_id').val();
+        var name = $('input[name=product_name').val();
+        var price = $('input[name=product_price').val();
+
+        $('#product_add').val('');
+
+        if ($('input[name="product['+id+']"]').length == 0) {
+            var tr = 
+            '<tr>'+
+                '<td>'+id+'</td>'+
+                '<td>'+name+'</td>'+
+                '<td>R$ '+price+'</td>'+
+                '<td>'+
+                    '<input type="number" name="product['+id+']" class="form control p_qtd" value="1" data-price="'+price+'" onchange="updateSubtotal(this)" />'+
+                '</td>'+
+                '<td class="subtotal">R$ '+price+'</td>'+
+                '<td><a href="javascript:;" onclick="excluirProd(this)">Excluir</a></td>'+
+            '</tr>';
+
+            $('#products_table').append(tr);
+        } else {
+            alert("Produto já adicionado à venda");
         }
+
+        updateTotal();
+        
     });
     //Search Product and Add Product in View saleAdd.php
 
@@ -163,10 +176,15 @@ $(function () {
 //Search Product and Add Product in View saleAdd.php
 function selectProduct(obj) {
     var id = $(obj).attr('data-id');
-    var name = $(obj).html();
+    var price = $(obj).attr('data-price');
+    var name = $(obj).attr('data-name');
+    
     $('.searchresults_product').hide();
+
     $('#product_add').val(name);
     $('input[name=product_id').val(id);
+    $('input[name=product_name').val(name);
+    $('input[name=product_price').val(price);
 }
 //Search Product and Add Product in View saleAdd.php
 
@@ -179,3 +197,35 @@ function selectClient(obj) {
     $('input[name=client_id').val(id);
 }
 //Search Client and Add Client in View saleAdd.php
+
+function updateSubtotal(obj) {
+    var qtd = $(obj).val();
+    if (qtd <= 0) {
+        $(obj).val(1);
+        qtd = 1;
+    }
+
+    var price = $(obj).attr('data-price');
+    var subtotal = price * qtd
+
+    $(obj).closest('tr').find('.subtotal').html('R$ '+subtotal);
+    updateTotal();
+}
+
+function excluirProd(obj) {
+    $(obj).closest('tr').remove();
+    updateTotal();
+}
+
+function updateTotal() {
+    var total = 0;
+
+    for (var i = 0; i < $('.p_qtd').length; i++) {
+        var qtd = $('.p_qtd').eq(i);
+        var price = qtd.attr('data-price');
+        var subtotal = price * parseInt(qtd.val());
+
+        total += subtotal;
+    }
+    $('input[name=total_price]').val(total);
+}
