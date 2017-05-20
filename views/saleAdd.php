@@ -40,10 +40,6 @@
 
                             </div>
                             <div class="form-group">
-                                <label>Data da venda: </label>
-                                <input type="text" name="date_sale" class="form-control date" placeholder="dd/mm/YYYY" required />
-                            </div>
-                            <div class="form-group">
                                 <label>Status: </label>
                                 <select name="status" class="form-control">
                                     <option value="1">Nova</option>
@@ -53,7 +49,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Preço da venda: </label>
+                                <label>Total da venda: </label>
                                 <input type="text" name="total_price" class="form-control money" disabled />
                             </div>
                             <hr>

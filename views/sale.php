@@ -45,6 +45,9 @@
                                 <td><?php echo date('d/m/Y', strtotime($sitem['date_sale'])); ?></td>
                                 <td><?php echo $sitem['status']; ?></td>
                                 <td>R$ <?php echo number_format($sitem['total_price'],2,',','.'); ?></td>
+                                <td>
+                                    <a href="<?php echo BASE_URL; ?>/sale/edit/<?php echo $sitem['id_sale']; ?>" class="btn btn-success"><i class="fa fa-fw fa-pencil-square-o"></i></a>
+                                </td>
                             </tr>
                             <?php endforeach; ?>
 
