@@ -18,6 +18,11 @@ class saleController extends controller
         $data['user_name'] = $user->getName();
         $company = new Company($user->getCompany());
         $data['company_name'] = $company->getName();
+        $data['statuses'] = array(
+            '1' => 'Novo',
+            '2' => 'Em Aprovação',
+            '3' => 'Concluida',
+            '4' => 'Cancelada');
 
         if ($user->hasPermission("SALE_VIEW")) {
             $sale = new Sale();
@@ -78,7 +83,12 @@ class saleController extends controller
         $data['user_name'] = $user->getName();
         $company = new Company($user->getCompany());
         $data['company_name'] = $company->getName();
-
+        $data['statuses'] = array(
+            '1' => 'Novo',
+            '2' => 'Em Aprovação',
+            '3' => 'Concluida',
+            '4' => 'Cancelada');
+        
         if ($user->hasPermission("SALE_VIEW")) {
             $sale = new Sale();
 

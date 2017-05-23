@@ -103,7 +103,8 @@ class Sale extends model {
             SELECT
                 sale_product.qtd,
                 sale_product.sale_price,
-                inventory.name
+                inventory.name,
+                inventory.id_inventory
             FROM sale_product
             LEFT JOIN inventory ON
                 inventory.id_inventory = sale_product.id_product
