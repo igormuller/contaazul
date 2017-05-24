@@ -121,4 +121,12 @@ class Sale extends model {
 
         return $array;
     }
+
+    public function changeStatus($status, $id_sale, $id_company) {
+        $sql = $this->db->prepare("UPDATE sale SET status = :status WHERE id_sale = :id_sale AND id_company = :id_company");
+        $sql->bindValue(":status", $status);
+        $sql->bindValue(":id_sale", $id_sale);
+        $sql->bindValue(":id_company", $id_company);
+        $sql->execute();
+    }
 }

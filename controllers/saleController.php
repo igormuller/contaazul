@@ -92,21 +92,14 @@ class saleController extends controller
         if ($user->hasPermission("SALE_VIEW")) {
             $sale = new Sale();
 
-            if (isset($_POST['client_id']) && !empty($_POST['client_id'])) {
-                $client_id = addslashes($_POST['client_id']);
-                $status = addslashes($_POST['status']);
-                //$date_sale = str_replace("/","-",$_POST['date_sale']);
-                //$date_sale = date("Y-m-d",strtotime($date_sale));
-                $products = $_POST['product'];
+            $data['permission_edit'] = $user->hasPermission("SALE_EDIT");
 
-                $sale->add($user->getCompany(), $user->getId(), $client_id, $status, $products);
+            if (isset($_POST['status']) && !empty($_POST['status']) && $data['permission_edit']) {
+                $status = addslashes($_POST['status']);
+                $sale->changeStatus($status, $id_sale, $user->getCompany());
                 header("Location: ".BASE_URL."/sale");
             }
-
-
-            $data['permission_edit'] = $user->hasPermission("SALE_EDIT");
             $data['sale_info'] = $sale->getSaleById($id_sale, $user->getCompany());
-            
             $this->loadTemplate("saleEdit", $data);
         } else {
             header("Location: " . BASE_URL . "/erro/permission");

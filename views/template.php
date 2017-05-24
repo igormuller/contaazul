@@ -250,6 +250,9 @@
                         <li class="<?php echo (in_array("sale",$url))? "active":""; ?>">
                             <a href="<?php echo BASE_URL; ?>/sale"><i class="fa fa-shopping-cart"></i> <span>Vendas</span></a>
                         </li>
+                        <li class="<?php echo (in_array("purchases",$url))? "active":""; ?>">
+                            <a href="<?php echo BASE_URL; ?>/purchases"><i class="fa fa-shopping-cart"></i> <span>Compras</span></a>
+                        </li>
                         <li class="treeview">
                             <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
                                 <span class="pull-right-container">
