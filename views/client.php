@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input type="text" id="id_search_client" class="form-control" placeholder="Procurar..." data-type="search_client" />
+                                    <input type="text" id="search_client" class="form-control" placeholder="Procurar..." data-type="search_client" />
                                     <div class="input-group-addon"><i class="fa fa-search"></i></div>
                                 </div>
                             </div>
@@ -78,3 +78,4 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script src="<?php echo BASE_URL; ?>/assets/js/script_client.js"></script>

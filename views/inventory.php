@@ -7,7 +7,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?php echo BASE_URL; ?>"><i class="fa fa-home"></i> Home</a></li>
-            <li class="active"><i class="fa fa-download"></i> Estoque</li>
+            <li class="active"><i class="fa fa-cubes"></i> Estoque</li>
         </ol>
     </section>
     <!-- Main content -->
@@ -24,7 +24,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input type="text" id="busca" class="form-control" placeholder="Procurar..." data-type="search_inventory" />
+                                    <input type="text" id="search_product" class="form-control" placeholder="Procurar..." data-type="search_inventory" />
                                     <div class="input-group-addon"><i class="fa fa-search"></i></div>
                                 </div>
                             </div>
@@ -82,3 +82,4 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script src="<?php echo BASE_URL; ?>/assets/js/script_product.js"></script>

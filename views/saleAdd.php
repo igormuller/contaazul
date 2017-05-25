@@ -34,7 +34,7 @@
                                 <label>Cliente: </label>
                                 <div class="input-group">
                                     <input type="hidden" name="client_id" />
-                                    <input type="text" id="client_add" name="nameClient" class="form-control" data-type="search_client" />
+                                    <input type="text" id="client_select" name="nameClient" class="form-control" data-type="search_client" />
                                     <div class="input-group-addon"><a href="javascript:;" class="client_add_button"><i class="fa fa-plus"></i> <strong>Adicionar Cliente Novo</strong></a></div>
                                 </div>
 
@@ -86,3 +86,5 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script src="<?php echo BASE_URL; ?>/assets/js/script_client.js"></script>
+<script src="<?php echo BASE_URL; ?>/assets/js/script_product.js"></script>

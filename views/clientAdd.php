@@ -112,4 +112,6 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/busca_cep.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/masks.js"></script>
 

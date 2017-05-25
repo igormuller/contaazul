@@ -8,7 +8,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?php echo BASE_URL; ?>"><i class="fa fa-home"></i> Home</a></li>
-            <li><a href="<?php echo BASE_URL; ?>/inventory"><i class="fa fa-download"></i> Estoque</a></li>
+            <li><a href="<?php echo BASE_URL; ?>/inventory"><i class="fa fa-cubes"></i> Estoque</a></li>
             <li class="active"><i class="fa fa-plus"></i> Editar</li>
         </ol>
     </section>

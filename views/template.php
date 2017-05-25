@@ -21,6 +21,15 @@
         <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/dist/css/skins/skin-blue.min.css">
         <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
 
+        <!-- jQuery 3.2.1 -->
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/jquery-3.2.1.min.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/bootstrap/js/bootstrap.min.js"></script>
+        <!-- Mascaras padrões -->
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/jquery.mask.js"></script>
+        <!-- Definindo o a url Padrão do sistema -->
+        <script type="text/javascript">var BASE_URL = '<?php echo BASE_URL; ?>'</script>
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -245,13 +254,13 @@
                             <a href="<?php echo BASE_URL; ?>/client"><i class="fa fa-street-view"></i> <span>Clientes</span></a>
                         </li>
                         <li class="<?php echo (in_array("inventory",$url))? "active":""; ?>">
-                            <a href="<?php echo BASE_URL; ?>/inventory"><i class="fa fa-download"></i> <span>Estoque</span></a>
+                            <a href="<?php echo BASE_URL; ?>/inventory"><i class="fa fa-cubes"></i> <span>Estoque</span></a>
                         </li>
                         <li class="<?php echo (in_array("sale",$url))? "active":""; ?>">
                             <a href="<?php echo BASE_URL; ?>/sale"><i class="fa fa-shopping-cart"></i> <span>Vendas</span></a>
                         </li>
-                        <li class="<?php echo (in_array("purchases",$url))? "active":""; ?>">
-                            <a href="<?php echo BASE_URL; ?>/purchases"><i class="fa fa-shopping-cart"></i> <span>Compras</span></a>
+                        <li class="<?php echo (in_array("purchase",$url))? "active":""; ?>">
+                            <a href="<?php echo BASE_URL; ?>/purchase"><i class="fa fa-download"></i> <span>Compras</span></a>
                         </li>
                         <li class="treeview">
                             <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
@@ -320,18 +329,14 @@
 
         <!-- REQUIRED JS SCRIPTS -->
 
-        <!-- jQuery 3.2.1 -->
-        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/jquery-3.2.1.min.js"></script>
-        <!-- Bootstrap 3.3.6 -->
-        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/bootstrap/js/bootstrap.min.js"></script>
+
         <!-- AdminLTE App -->
         <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/dist/js/app.min.js"></script>
-        <!-- Mascaras padrões -->
-        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/jquery.mask.js"></script>
+
         <!-- Meus Scripts -->
-        <script type="text/javascript">var BASE_URL = '<?php echo BASE_URL; ?>'</script>
+
         <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/script.js"></script>
-        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/script_clients_add.js"></script>
+
 
         <!-- Optionally, you can add Slimscroll and FastClick plugins.
              Both of these plugins are recommended to enhance the

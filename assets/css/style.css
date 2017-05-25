@@ -1,7 +1,8 @@
 .searchresults, 
-.searchresults_product {
+.searchresults_product,
+.searchresults_client {
 	width: 250px;
-	background-color: #FFF;
+	background-color: #CCC;
 	position: absolute;
 	border: 1px solid #CCC;
 }

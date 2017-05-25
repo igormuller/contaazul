@@ -7,7 +7,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?php echo BASE_URL; ?>"><i class="fa fa-home"></i> Home</a></li>
-            <li class="active"><i class="fa fa-shopping-cart"></i> Compras</li>
+            <li class="active"><i class="fa fa-download"></i> Compras</li>
         </ol>
     </section>
     <!-- Main content -->
@@ -19,12 +19,12 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <?php if ($permission_edit): ?>
-                                    <p><a href="<?php echo BASE_URL; ?>/purchases/add" class="btn btn-success" data-toggle="modal">Adicionar Compra</a></p>
+                                    <p><a href="<?php echo BASE_URL; ?>/purchase/add" class="btn btn-success" data-toggle="modal">Adicionar Compra</a></p>
                                 <?php endif; ?>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input type="text" id="busca" class="form-control" placeholder="Procurar..." data-type="search_purchases" />
+                                    <input type="text" id="busca" class="form-control" placeholder="Procurar..." data-type="search_purchase" />
                                     <div class="input-group-addon"><i class="fa fa-search"></i></div>
                                 </div>
                             </div>
