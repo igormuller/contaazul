@@ -1,7 +1,8 @@
 /**
- * Created by igor.muller on 25/05/2017.
+ * Created by igor.muller on 26/05/2017.
  */
 $(function () {
+
     //Search Product and Select in input
     $('#product_add').on('blur', function(){
         setTimeout(function(){
@@ -36,42 +37,8 @@ $(function () {
         }
     });
 
-    //Search Product and click Edit
-    $('#search_product').on('blur', function(){
-        setTimeout(function(){
-            $('.searchresults_product').hide();
-        }, 500);
-    });
-    $('#search_product').on('keyup', function(){
-        var datatype = $(this).attr('data-type');
-        var q = $(this).val();
-        if (datatype != '') {
-            $.ajax({
-                url:BASE_URL+'/ajax/'+datatype,
-                type:'GET',
-                data:{s:q},
-                dataType:'json',
-                success:function(json) {
-                    if ($('.searchresults_product').length == 0) {
-                        $('#search_product').after('<div class="searchresults_product"></div>');
-                    }
-
-                    $('.searchresults_product').css('top', '35px');
-
-                    var html = '';
-                    for(var i in json) {
-                        html += '<div class="searchitemproduct"><a href="' + json[i].link + '">'+json[i].name+'</a></div>';
-                    }
-
-                    $('.searchresults_product').html(html);
-                    $('.searchresults_product').show();
-                }
-            });
-        }
-    });
-
-    //Add product in sale
-    $('.product_add_button').on('click', function (){
+    //Add product in purchase
+    $('.product_add_purchase').on('click', function (){
         var id = $('input[name=product_id]').val();
         var name = $('input[name=product_name]').val();
         var price = $('input[name=product_price]').val();
@@ -83,7 +50,9 @@ $(function () {
                 '<tr>'+
                 '<td>'+id+'</td>'+
                 '<td>'+name+'</td>'+
-                '<td>R$ '+price+'</td>'+
+                '<td>'+
+                '<input type="text" name="price['+id+']" class="form control p_price" value="'+price+'" onchange="updatePrice(this)" />'+
+                '</td>'+
                 '<td>'+
                 '<input type="number" name="product['+id+']" class="form control p_qtd" value="1" data-price="'+price+'" onchange="updateSubtotal(this)" />'+
                 '</td>'+
@@ -93,16 +62,14 @@ $(function () {
 
             $('#products_table').append(tr);
         } else {
-            alert("Produto já adicionado à venda");
+            alert("Produto já adicionado à compra");
         }
 
         updateTotal();
 
     });
-    //Search Product and Add Product in View saleAdd.php
 });
 
-//Search Product and Add Product in View saleAdd.php
 function selectProduct(obj) {
     var id = $(obj).attr('data-id');
     var price = $(obj).attr('data-price');
@@ -117,9 +84,13 @@ function selectProduct(obj) {
 }
 //Search Product and Add Product in View saleAdd.php
 
+function updatePrice(obj) {
+    var price = $(obj).val();
+    $(obj).closest('tr').find('.p_qtd').attr('data-price',price);
+    updateSubtotal($(obj).closest('tr').find('.p_qtd'));
+}
 function updateSubtotal(obj) {
     var qtd = $(obj).val();
-
     if (qtd <= 0) {
         $(obj).val(1);
         qtd = 1;

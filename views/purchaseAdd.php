@@ -29,8 +29,10 @@
                                     <input type="hidden" name="product_name" />
                                     <input type="hidden" name="product_price" />
                                     <input type="text" id="product_add" class="form-control" placeholder="Procurar..." data-type="search_inventory" />
-                                    <div class="input-group-addon"><a href="javascript:;" class="product_add_button"><i class="fa fa-plus"></i> <strong>Adicionar Produto na Compra</strong></a></div>
+                                    <div class="input-group-addon"><a href="javascript:;" class="product_add_purchase"><i class="fa fa-plus"></i> <strong>Adicionar Produto na Compra</strong></a></div>
                                 </div>
+                                <br/>
+                                <a href="javascript:;" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalNewProduct">Novo Produto</a>
                             </fieldset>
                             <table class="table table-condensed" id="products_table">
                                 <tr>
@@ -44,7 +46,7 @@
                             </table>
                         </div>
                         <div class="box-footer">
-
+                            <input type="submit" class="btn btn-success" value="Salvar" />
                         </div>
                     </form>
 
@@ -55,4 +57,30 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-<script src="<?php echo BASE_URL; ?>/assets/js/script_product.js"></script>
+<!-- Modal Adicionar produto -->
+<div class="modal fade" id="modalNewProduct" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Adicionar novo Produto</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Nome: </label>
+                    <input type="text" name="nameNewProduct" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Qtde Mínima: </label>
+                    <input type="text" name="qtd_minNewProduct" class="form-control" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="saveNewProduct">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Adicionar produto -->
+
+<script src="<?php echo BASE_URL; ?>/assets/js/script_product_purchase.js"></script>

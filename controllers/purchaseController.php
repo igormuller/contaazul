@@ -58,6 +58,10 @@ class purchaseController extends controller
         if ($user->hasPermission("PURCHASES_EDIT")) {
             $purchases = new Purchase();
 
+            if (isset($_POST['product']) && !empty($_POST['product'])) {
+                
+            }
+
 
 
             $this->loadTemplate("purchaseAdd", $data);
