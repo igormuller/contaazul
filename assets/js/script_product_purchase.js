@@ -37,6 +37,45 @@ $(function () {
         }
     });
 
+    //Create new product and include in purchase
+    $('#saveNewProduct').on('click', function () {
+        var newProduct = [$('input[name=nameNewProduct]').val(), $('input[name=qtd_minNewProduct]').val()];
+
+        if ($('input[name=nameNewProduct]').val() != '') {
+            $.ajax({
+                url:BASE_URL+'/ajax/add_product',
+                type:'POST',
+                data:{newProduct:newProduct},
+                dataType:'json',
+                success:function (json) {
+
+                    var id = json['id_product'];
+                    var name = json['name'];
+                    var price = 0;
+
+                    var tr =
+                        '<tr>'+
+                        '<td>'+id+'</td>'+
+                        '<td>'+name+'</td>'+
+                        '<td>'+
+                        '<input type="text" name="price['+id+']" class="form control p_price" value="'+price+'" onchange="updatePrice(this)" />'+
+                        '</td>'+
+                        '<td>'+
+                        '<input type="number" name="product['+id+']" class="form control p_qtd" value="1" data-price="'+price+'" onchange="updateSubtotal(this)" />'+
+                        '</td>'+
+                        '<td class="subtotal">R$ '+price+'</td>'+
+                        '<td><a href="javascript:;" onclick="excluirProd(this)">Excluir</a></td>'+
+                        '</tr>';
+
+                    $('#products_table').append(tr);
+                }
+
+            });
+        }
+        $('input[name=nameNewProduct]').val("");
+        $('input[name=qtd_minNewProduct]').val("");
+    });
+
     //Add product in purchase
     $('.product_add_purchase').on('click', function (){
         var id = $('input[name=product_id]').val();

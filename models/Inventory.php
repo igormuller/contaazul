@@ -25,6 +25,8 @@ class Inventory extends model {
 
 		$id_product = $this->db->lastInsertId();
 		$this->setLog($id_company, $id_product, $id_user, 'add');
+
+		return $id_product;
 	}
 
 	public function edit($id_inventory, $id_company, $name, $price, $qtd, $qtd_min, $id_user) {
@@ -63,7 +65,6 @@ class Inventory extends model {
         $sql->bindValue(":id_company", $id_company);
         $sql->execute();
 
-        $r = 0;
         $row = $sql->fetch();
         $r = $row['c'];
         return $r;
@@ -99,7 +100,7 @@ class Inventory extends model {
 		$sql->bindValue(":id_inventory", $id_inventory);
 		$sql->execute();
 
-		$aid_company = array();
+		$id_company = array();
 		if ($sql->rowCount() > 0) {
 			$id_company = $sql->fetch()['id_company'];
 		}

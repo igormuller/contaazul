@@ -58,4 +58,5 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script src="<?php echo BASE_URL; ?>/assets/js/masks.js"></script>
 

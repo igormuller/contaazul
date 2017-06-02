@@ -76,5 +76,21 @@ class ajaxController extends controller {
         echo json_encode($data);
     }
 
+    public function add_product() {
+        $data = array();
+        $user = new User();
+        $user->setLoggedUser();
+
+        $newProduct = $_POST['newProduct'];
+        $data['name'] = addslashes($newProduct[0]);
+        $data['qtdMin'] = addslashes($newProduct[1]);
+
+        $product = new Inventory();
+        $data['id_product'] = $product->add($user->getCompany(),$data['name'], 0, 0, $data['qtdMin'], $user->getId());
+
+        echo json_encode($data);
+
+    }
+
 }
 ?>

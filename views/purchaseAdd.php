@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="saveNewProduct">Salvar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close" id="saveNewProduct">Salvar</button>
             </div>
         </div>
     </div>

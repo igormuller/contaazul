@@ -59,7 +59,7 @@ class purchaseController extends controller
             $purchases = new Purchase();
 
             if (isset($_POST['product']) && !empty($_POST['product'])) {
-                
+                print_r($_POST['price']);print_r($_POST['product']);exit;
             }
 
 
