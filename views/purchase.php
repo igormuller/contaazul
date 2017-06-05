@@ -29,7 +29,9 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="row">
+                            <?php print_r($purchases_list); ?>
+                        </div>
                     </div>
                     <div class="box-footer">
                         <nav aria-label="Page navigation">

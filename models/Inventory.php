@@ -42,6 +42,17 @@ class Inventory extends model {
 		$this->setLog($id_company, $id_inventory, $id_user, 'edt');
 	}
 
+	public function purchase($id_inventory, $id_company, $price, $qtd, $id_user) {
+	    $sql = $this->db->prepare("UPDATE inventory SET price = :price, qtd = :qtd + qtd WHERE id_inventory = :id_inventory AND id_company = :id_company");
+	    $sql->bindValue(":price", $price);
+	    $sql->bindValue(":qtd", $qtd);
+	    $sql->bindValue(":id_inventory", $id_inventory);
+	    $sql->bindValue("id_company", $id_company);
+	    $sql->execute();
+
+	    $this->setLog($id_company,$id_inventory, $id_user, "pur");
+    }
+
 	public function delete($id_inventory, $id_company, $id_user) {
 		$sql = $this->db->prepare("DELETE FROM inventory WHERE id_inventory = :id_inventory AND id_company = :id_company");
 		$sql->bindValue(":id_inventory", $id_inventory);

@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94788757-e925-4eb8-acd3-41b00f90a98b" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/blade.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/script_product_purchase.js" afterPath="$PROJECT_DIR$/assets/js/script_product_purchase.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/ajaxController.php" afterPath="$PROJECT_DIR$/controllers/ajaxController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/purchaseController.php" afterPath="$PROJECT_DIR$/controllers/purchaseController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Inventory.php" afterPath="$PROJECT_DIR$/models/Inventory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inventoryEdit.php" afterPath="$PROJECT_DIR$/views/inventoryEdit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/purchaseAdd.php" afterPath="$PROJECT_DIR$/views/purchaseAdd.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Purchase.php" afterPath="$PROJECT_DIR$/models/Purchase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inventoryAdd.php" afterPath="$PROJECT_DIR$/views/inventoryAdd.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/purchase.php" afterPath="$PROJECT_DIR$/views/purchase.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,116 +21,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="script_product.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/script_product.js">
+      <file leaf-file-name="inventoryAdd.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/inventoryAdd.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1683">
-              <caret line="101" column="21" lean-forward="false" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#48#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="script_product_purchase.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/script_product_purchase.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#48#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Inventory.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/models/Inventory.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-              <folding>
-                <marker date="1496411731836" expanded="true" signature="118:190" ph="SELECT * FRO... inventory" />
-                <marker date="1496411731836" expanded="true" signature="471:583" ph="INSERT INTO inventory... " />
-                <marker date="1496411731836" expanded="true" signature="1052:1197" ph="UPDATE inven... " />
-                <marker date="1496411731836" expanded="true" signature="1624:1709" ph="DELETE FROM " />
-                <marker date="1496411731836" expanded="true" signature="1997:2140" ph="INSERT INTO inventory_history... " />
-                <marker date="1496411731836" expanded="true" signature="2417:2483" ph="SELECT COUNT... inventory" />
-                <marker date="1496411731836" expanded="true" signature="2726:2784" ph="SELECT * FRO... inventory" />
-                <marker date="1496411731836" expanded="true" signature="3042:3125" ph="SELECT * FRO... inventory" />
-                <marker date="1496411731836" expanded="true" signature="3418:3485" ph="SELECT id_co... inventory" />
-                <marker date="1496411731836" expanded="true" signature="3790:3891" ph="UPDATE inven... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Client.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/Client.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="41" />
-              <folding>
-                <marker date="1495732906889" expanded="true" signature="124:193" ph="SELECT * FRO... client" />
-                <marker date="1495732906889" expanded="true" signature="711:1100" ph="INSERT INTO client... " />
-                <marker date="1495732906889" expanded="true" signature="2171:2587" ph="UPDATE clien... " />
-                <marker date="1495732906889" expanded="true" signature="3516:3594" ph="SELECT * FRO... client" />
-                <marker date="1495732906889" expanded="true" signature="3945:4008" ph="SELECT COUNT... client" />
-                <marker date="1495732906889" expanded="true" signature="4251:4309" ph="SELECT id_co... client" />
-                <marker date="1495732906889" expanded="true" signature="4642:4736" ph="SELECT id_cl... client" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajaxController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/ajaxController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
-              <caret line="90" column="32" lean-forward="true" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="purchaseController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/purchaseController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="52" column="31" lean-forward="true" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Purchase.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/Purchase.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-              <folding>
-                <marker date="1495719635016" expanded="true" signature="138:322" ph="SELECT * FRO... purchase" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inventoryEdit.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/inventoryEdit.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="60" column="57" lean-forward="false" selection-start-line="60" selection-start-column="57" selection-end-line="60" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="purchaseAdd.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/purchaseAdd.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="68" column="40" lean-forward="true" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
+            <state relative-caret-position="465">
+              <caret line="60" column="66" lean-forward="true" selection-start-line="60" selection-start-column="66" selection-end-line="60" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -161,9 +57,7 @@
         <option value="$PROJECT_DIR$/models/Sale.php" />
         <option value="$PROJECT_DIR$/models/Purchases.php" />
         <option value="$PROJECT_DIR$/controllers/purchasesController.php" />
-        <option value="$PROJECT_DIR$/views/inventoryAdd.php" />
         <option value="$PROJECT_DIR$/views/purchases.php" />
-        <option value="$PROJECT_DIR$/models/Purchase.php" />
         <option value="$PROJECT_DIR$/views/clientAdd.php" />
         <option value="$PROJECT_DIR$/views/template.php" />
         <option value="$PROJECT_DIR$/assets/js/masks.js" />
@@ -181,12 +75,15 @@
         <option value="$PROJECT_DIR$/views/teste.php" />
         <option value="$PROJECT_DIR$/assets/js/busca_cep.js" />
         <option value="$PROJECT_DIR$/assets/js/script_product.js" />
-        <option value="$PROJECT_DIR$/models/Inventory.php" />
         <option value="$PROJECT_DIR$/controllers/ajaxController.php" />
         <option value="$PROJECT_DIR$/views/purchaseAdd.php" />
-        <option value="$PROJECT_DIR$/assets/js/script_product_purchase.js" />
-        <option value="$PROJECT_DIR$/controllers/purchaseController.php" />
         <option value="$PROJECT_DIR$/views/inventoryEdit.php" />
+        <option value="$PROJECT_DIR$/assets/js/script_product_purchase.js" />
+        <option value="$PROJECT_DIR$/models/Inventory.php" />
+        <option value="$PROJECT_DIR$/controllers/purchaseController.php" />
+        <option value="$PROJECT_DIR$/models/Purchase.php" />
+        <option value="$PROJECT_DIR$/views/purchase.php" />
+        <option value="$PROJECT_DIR$/views/inventoryAdd.php" />
       </list>
     </option>
   </component>
@@ -224,6 +121,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -330,12 +229,10 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="AppEnginePhpModulesConfigurable" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunDashboard">
@@ -438,11 +335,13 @@
       <workItem from="1496074771778" duration="595000" />
       <workItem from="1496402702802" duration="1286000" />
       <workItem from="1496405020692" duration="8791000" />
+      <workItem from="1496671604068" duration="301000" />
+      <workItem from="1496672004017" duration="5859000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33173000" />
+    <option name="totallyTimeSpent" value="39333000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -592,7 +491,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
           <caret line="48" column="5" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="48" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -653,20 +551,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/Sale.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="35" column="5" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="35" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/purchase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="50" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/masks.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -691,13 +575,6 @@
     <entry file="file://$PROJECT_DIR$/assets/js/search_product.js" />
     <entry file="file://$PROJECT_DIR$/assets/js/search_client_select.js" />
     <entry file="file://$PROJECT_DIR$/assets/js/search_client.js" />
-    <entry file="file://$PROJECT_DIR$/views/saleAdd.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="74" column="36" lean-forward="true" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/script_client.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -749,43 +626,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/script_product.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="101" column="21" lean-forward="false" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#48#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/saleController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="48" column="5" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="48" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/inventoryController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-663">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/inventoryAdd.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="29" column="45" lean-forward="false" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/Client.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="595">
           <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="41" />
           <folding>
             <marker date="1495732906889" expanded="true" signature="124:193" ph="SELECT * FRO... client" />
@@ -799,74 +649,141 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/purchaseAdd.php">
+    <entry file="file://$PROJECT_DIR$/views/inventoryEdit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="68" column="40" lean-forward="true" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
+        <state relative-caret-position="1020">
+          <caret line="60" column="57" lean-forward="false" selection-start-line="60" selection-start-column="57" selection-end-line="60" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/ajaxController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="90" column="32" lean-forward="true" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
+        <state relative-caret-position="397">
+          <caret line="90" column="32" lean-forward="false" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/script_product_purchase.js">
+    <entry file="file://$PROJECT_DIR$/views/purchaseAdd.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        <state relative-caret-position="1156">
+          <caret line="68" column="40" lean-forward="false" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/saleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="61" column="76" lean-forward="true" selection-start-line="61" selection-start-column="76" selection-end-line="61" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/saleAdd.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="78" column="69" lean-forward="true" selection-start-line="78" selection-start-column="69" selection-end-line="78" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/script_product.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="868">
+          <caret line="124" column="16" lean-forward="true" selection-start-line="124" selection-start-column="16" selection-end-line="124" selection-end-column="16" />
           <folding>
             <element signature="e#0#48#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/purchaseController.php">
+    <entry file="file://$PROJECT_DIR$/assets/js/script_product_purchase.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="52" column="31" lean-forward="true" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Purchase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        <state relative-caret-position="272">
+          <caret line="87" column="20" lean-forward="true" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
           <folding>
-            <marker date="1495719635016" expanded="true" signature="138:322" ph="SELECT * FRO... purchase" />
+            <element signature="e#0#48#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/inventoryEdit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="60" column="57" lean-forward="false" selection-start-line="60" selection-start-column="57" selection-end-line="60" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/Inventory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+        <state relative-caret-position="170">
+          <caret line="44" column="80" lean-forward="false" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="80" />
           <folding>
-            <marker date="1496411731836" expanded="true" signature="118:190" ph="SELECT * FRO... inventory" />
-            <marker date="1496411731836" expanded="true" signature="471:583" ph="INSERT INTO inventory... " />
-            <marker date="1496411731836" expanded="true" signature="1052:1197" ph="UPDATE inven... " />
-            <marker date="1496411731836" expanded="true" signature="1624:1709" ph="DELETE FROM " />
-            <marker date="1496411731836" expanded="true" signature="1997:2140" ph="INSERT INTO inventory_history... " />
-            <marker date="1496411731836" expanded="true" signature="2417:2483" ph="SELECT COUNT... inventory" />
-            <marker date="1496411731836" expanded="true" signature="2726:2784" ph="SELECT * FRO... inventory" />
-            <marker date="1496411731836" expanded="true" signature="3042:3125" ph="SELECT * FRO... inventory" />
-            <marker date="1496411731836" expanded="true" signature="3418:3485" ph="SELECT id_co... inventory" />
-            <marker date="1496411731836" expanded="true" signature="3790:3891" ph="UPDATE inven... " />
+            <marker date="1496679885577" expanded="true" signature="118:190" ph="SELECT * FRO... inventory" />
+            <marker date="1496679885577" expanded="true" signature="471:583" ph="INSERT INTO inventory... " />
+            <marker date="1496679885577" expanded="true" signature="1052:1197" ph="UPDATE inven... " />
+            <marker date="1496679885577" expanded="true" signature="1643:1760" ph="UPDATE inven... " />
+            <marker date="1496679885577" expanded="true" signature="2130:2215" ph="DELETE FROM " />
+            <marker date="1496679885577" expanded="true" signature="2503:2646" ph="INSERT INTO inventory_history... " />
+            <marker date="1496679885577" expanded="true" signature="2923:2989" ph="SELECT COUNT... inventory" />
+            <marker date="1496679885577" expanded="true" signature="3232:3290" ph="SELECT * FRO... inventory" />
+            <marker date="1496679885577" expanded="true" signature="3548:3631" ph="SELECT * FRO... inventory" />
+            <marker date="1496679885577" expanded="true" signature="3924:3991" ph="SELECT id_co... inventory" />
+            <marker date="1496679885577" expanded="true" signature="4296:4397" ph="UPDATE inven... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Sale.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="48" column="45" lean-forward="true" selection-start-line="48" selection-start-column="45" selection-end-line="48" selection-end-column="45" />
+          <folding>
+            <marker date="1495653369110" expanded="true" signature="135:505" ph="SELECT sale.... sale" />
+            <marker date="1495653369110" expanded="true" signature="808:869" ph="SELECT COUNT... sale" />
+            <marker date="1495653369110" expanded="true" signature="1158:1312" ph="INSERT INTO sale... " />
+            <marker date="1495653369110" expanded="true" signature="1747:1838" ph="SELECT price... inventory" />
+            <marker date="1495653369110" expanded="true" signature="2155:2292" ph="INSERT INTO sale_product... " />
+            <marker date="1495653369110" expanded="true" signature="2828:2923" ph="UPDATE sale " />
+            <marker date="1495653369110" expanded="true" signature="3220:3469" ph="SELECT *, (s... sale" />
+            <marker date="1495653369110" expanded="true" signature="3263:3333" ph="select clien... client" />
+            <marker date="1495653369110" expanded="true" signature="3762:4168" ph="SELECT sale_... sale_product" />
+            <marker date="1495653369110" expanded="true" signature="4528:4614" ph="UPDATE sale " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Purchase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="62" column="24" lean-forward="true" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+          <folding>
+            <marker date="1496680652503" expanded="true" signature="138:322" ph="SELECT * FRO... purchase" />
+            <marker date="1496680652503" expanded="true" signature="625:690" ph="SELECT COUNT... purchase" />
+            <marker date="1496680652503" expanded="true" signature="927:1047" ph="INSERT INTO purchase... " />
+            <marker date="1496680652503" expanded="true" signature="1675:1783" ph="UPDATE purch... " />
+            <marker date="1496680652503" expanded="true" signature="2112:2218" ph="INSERT INTO purchase_product... " />
+            <marker date="1496680652503" expanded="true" signature="2112:2273" ph="INSERT INTO purchase_product... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/purchase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="32" column="59" lean-forward="false" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/purchaseController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="39" column="19" lean-forward="true" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/inventoryAdd.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="60" column="66" lean-forward="true" selection-start-line="60" selection-start-column="66" selection-end-line="60" selection-end-column="66" />
+          <folding />
         </state>
       </provider>
     </entry>

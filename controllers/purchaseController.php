@@ -56,10 +56,13 @@ class purchaseController extends controller
         $data['company_name'] = $company->getName();
 
         if ($user->hasPermission("PURCHASES_EDIT")) {
-            $purchases = new Purchase();
+            $purchase = new Purchase();
 
             if (isset($_POST['product']) && !empty($_POST['product'])) {
-                print_r($_POST['price']);print_r($_POST['product']);exit;
+                $products = $_POST['product'];
+                $purchase->add($user->getCompany(),$user->getId(),$products);
+
+                header("Location: ".BASE_URL."/purchase");
             }
 
 

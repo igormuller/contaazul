@@ -58,10 +58,10 @@ $(function () {
                         '<td>'+id+'</td>'+
                         '<td>'+name+'</td>'+
                         '<td>'+
-                        '<input type="text" name="price['+id+']" class="form control p_price" value="'+price+'" onchange="updatePrice(this)" />'+
+                        '<input type="text" name="product['+id+'][price]" class="form control p_price" value="'+price+'" onchange="updatePrice(this)" />'+
                         '</td>'+
                         '<td>'+
-                        '<input type="number" name="product['+id+']" class="form control p_qtd" value="1" data-price="'+price+'" onchange="updateSubtotal(this)" />'+
+                        '<input type="number" name="product['+id+'][qtd]" class="form control p_qtd" value="1" data-price="'+price+'" onchange="updateSubtotal(this)" />'+
                         '</td>'+
                         '<td class="subtotal">R$ '+price+'</td>'+
                         '<td><a href="javascript:;" onclick="excluirProd(this)">Excluir</a></td>'+
@@ -90,10 +90,10 @@ $(function () {
                 '<td>'+id+'</td>'+
                 '<td>'+name+'</td>'+
                 '<td>'+
-                '<input type="text" name="price['+id+']" class="form control p_price" value="'+price+'" onchange="updatePrice(this)" />'+
+                '<input type="text" name="product['+id+'][price]" class="form control p_price" value="'+price+'" onchange="updatePrice(this)" />'+
                 '</td>'+
                 '<td>'+
-                '<input type="number" name="product['+id+']" class="form control p_qtd" value="1" data-price="'+price+'" onchange="updateSubtotal(this)" />'+
+                '<input type="number" name="product['+id+'][qtd]" class="form control p_qtd" value="1" data-price="'+price+'" onchange="updateSubtotal(this)" />'+
                 '</td>'+
                 '<td class="subtotal">R$ '+price+'</td>'+
                 '<td><a href="javascript:;" onclick="excluirProd(this)">Excluir</a></td>'+
