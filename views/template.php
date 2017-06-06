@@ -262,6 +262,9 @@
                         <li class="<?php echo (in_array("purchase",$url))? "active":""; ?>">
                             <a href="<?php echo BASE_URL; ?>/purchase"><i class="fa fa-download"></i> <span>Compras</span></a>
                         </li>
+                        <li class="<?php echo (in_array("report",$url))? "active":""; ?>">
+                            <a href="<?php echo BASE_URL; ?>/report"><i class="fa fa-bar-chart"></i> <span>Relatórios</span></a>
+                        </li>
                         <li class="treeview">
                             <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
                                 <span class="pull-right-container">
