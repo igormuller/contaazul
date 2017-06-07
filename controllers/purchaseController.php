@@ -73,4 +73,26 @@ class purchaseController extends controller
         }
     }
 
+    public function view($id_purchase) {
+        $data = array();
+        $user = new User();
+        $user->setLoggedUser();
+        $data['user_name'] = $user->getName();
+        $company = new Company($user->getCompany());
+        $data['company_name'] = $company->getName();
+
+        if ($user->hasPermission("PURCHASES_EDIT")) {
+            $purchase = new Purchase();
+
+            if ($user->getCompany() === $purchase->getCompany($id_purchase)) {
+                $data['purchase'] = $purchase->getPurchase($id_purchase);
+                $this->loadTemplate("purchaseView", $data);
+            } else {
+                header("Location: " . BASE_URL . "/erro/permission");
+            }
+        } else {
+            header("Location: " . BASE_URL . "/erro/permission");
+        }
+    }
+
 }

@@ -4,11 +4,15 @@ class Purchase extends model {
     public function getList($offset, $id_company) {
         $sql = $this->db->prepare("
             SELECT
-              *
-            FROM purchase
-            WHERE
-              id_company = :id_company
-            ORDER BY purchase.date_purchase DESC
+              purchase.id_purchase,
+              purchase.date_purchase,
+              purchase.total_price,
+              user.name 
+            FROM purchase 
+            LEFT JOIN user ON user.id_user = purchase.id_user 
+            WHERE 
+              purchase.id_company = :id_company 
+            ORDER BY purchase.date_purchase DESC 
             LIMIT $offset, 10");
         $sql->bindValue(":id_company", $id_company);
         $sql->execute();
@@ -46,7 +50,7 @@ class Purchase extends model {
             $total_price += $product['price'] * $product['qtd'];
         }
 
-        $sql = $this->db->prepare("UPDATE purchase SET total_price = :toral_price WHERE id_purchase = :id_purchase AND id_company = :id_company");
+        $sql = $this->db->prepare("UPDATE purchase SET total_price = :total_price WHERE id_purchase = :id_purchase AND id_company = :id_company");
         $sql->bindValue(":total_price", $total_price);
         $sql->bindValue("id_purchase", $id_purchase);
         $sql->bindValue("id_company", $id_company);
@@ -61,6 +65,30 @@ class Purchase extends model {
         $sql->bindValue(":qtd", $qtd);
         $sql->bindValue(":purchase_price", $purchase_price);
         $sql->execute();
+    }
+
+    public function getCompany($id_purchase) {
+        $sql = $this->db->prepare("SELECT id_company FROM purchase WHERE id_purchase = :id_purchase");
+        $sql->bindValue(":id_purchase", $id_purchase);
+        $sql->execute();
+
+        $id_company = '';
+        if ($sql->rowCount() > 0) {
+            $id_company = $sql->fetch()['id_company'];
+        }
+        return $id_company;
+    }
+
+    public function getPurchase($id_purchase) {
+        $sql = $this->db->prepare("SELECT * FROM purchase WHERE id_purchase = :id_purchase");
+        $sql->bindValue(":id_purchase", $id_purchase);
+        $sql->execute();
+
+        $array = array();
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetch();
+        }
+        return $array;
     }
 
 }

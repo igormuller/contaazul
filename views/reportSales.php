@@ -22,7 +22,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Cliente:</label>
-                                        <input type="text" name="name_client" class="form-control" />
+                                        <input type="text" name="client_name" class="form-control" />
                                     </div>
                                     <div class="form-group">
                                         <label>Período:</label>

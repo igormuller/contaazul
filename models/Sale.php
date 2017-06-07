@@ -129,4 +129,62 @@ class Sale extends model {
         $sql->bindValue(":id_company", $id_company);
         $sql->execute();
     }
+
+    public function getSaleFiltered($client_name, $period1, $period2, $status, $order, $id_company) {
+        $sql = "
+          SELECT
+            client.name,
+            sale.id_sale,
+            sale.date_sale,
+            sale.total_price,
+            sale.status
+          FROM sale
+          LEFT JOIN client on client.id_client = sale.id_client
+          WHERE ";
+
+        $where = array();
+        $where[] = "sale.id_company = :id_company";
+        if (!empty($client_name)) {
+            $where[] = "client.name LIKE '%$client_name%'";
+        }
+        if (!empty($period1) && !empty($period2)) {
+            $where[] = "sale.date_sale BETWEEN :period1 AND :period2";
+        }
+        if (!empty($status)) {
+            $where[] = "sale.status = :status";
+        }
+
+        $sql .= implode(" AND ", $where);
+
+        switch ($order) {
+            case 'date_dasc':
+            default:
+                $sql .= " ORDER BY sale.date_sale DESC";
+                break;
+            case 'date_asc':
+                $sql .= " ORDER BY date_sale ASC";
+                break;
+            case 'status':
+                $sql .= " ORDER BY sale.status";
+                break;
+        }
+
+        $sql = $this->db->prepare($sql);
+
+        $sql->bindValue(":id_company", $id_company);
+        if (!empty($period1) && !empty($period2)) {
+            $sql->bindValue(":period1", $period1);
+            $sql->bindValue(":period2", $period2);
+        }
+        if (!empty($status)) {
+            $sql->bindValue(":status", $status);
+        }
+        $sql->execute();
+
+        $array = array();
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }
+        return $array;
+    }
 }

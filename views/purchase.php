@@ -29,9 +29,27 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <?php print_r($purchases_list); ?>
-                        </div>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>#</th>
+                                <th>Usuário</th>
+                                <th>Data Compra</th>
+                                <th>Total</th>
+                                <th>Ações</th>
+                            </tr>
+                            <?php foreach ($purchases_list as $pitem): ?>
+                                <tr>
+                                    <td><?php echo $pitem['id_purchase']; ?></td>
+                                    <td><?php echo $pitem['name']; ?></td>
+                                    <td><?php echo date('d/m/Y', strtotime($pitem['date_purchase'])); ?></td>
+                                    <td>R$ <?php echo number_format($pitem['total_price'],2,',','.'); ?></td>
+                                    <td>
+                                        <a href="<?php echo BASE_URL; ?>/purchase/view/<?php echo $pitem['id_purchase']; ?>" class="btn btn-success"><i class="fa fa-fw fa-pencil-square-o"></i></a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+
+                        </table>
                     </div>
                     <div class="box-footer">
                         <nav aria-label="Page navigation">
