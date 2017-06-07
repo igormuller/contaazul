@@ -47,4 +47,17 @@ class reportController extends controller {
         }
     }
 
+    public function sales_pdf() {
+        $data = array();
+        $user = new User();
+        $user->setLoggedUser();
+
+        if ($user->hasPermission("REPORT_VIEW")) {
+
+            $this->loadView("sales_pdf", $data);
+        } else {
+            header("Location: ".BASE_URL."/erro/permission");
+        }
+    }
+
 }

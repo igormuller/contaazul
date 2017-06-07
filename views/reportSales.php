@@ -26,9 +26,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Período:</label>
-                                        <input type="date" name="period1" class="form-control" />
-                                        <label>à</label>
-                                        <input type="date" name="period2" class="form-control" />
+                                        <div class="input-daterange input-group">
+                                            <input type="text" name="period1" class="datepicker form-control" />
+                                            <span class="input-group-addon">até</span>
+                                            <input type="text" name="period2" class="datepicker form-control" />
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Status:</label>
@@ -63,3 +65,5 @@
 <!-- /.content-wrapper -->
 <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/masks.js"></script>
 <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/report_sales.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/bootstrap-datepicker.pt-BR.js"></script>

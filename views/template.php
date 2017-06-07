@@ -20,13 +20,15 @@
         -->
         <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/dist/css/skins/skin-blue.min.css">
         <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/datepicker3.css">
 
         <!-- jQuery 3.2.1 -->
-        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/jquery.min.js"></script>
         <!-- Bootstrap 3.3.6 -->
         <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/bootstrap/js/bootstrap.min.js"></script>
         <!-- Mascaras padrões -->
         <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/jquery.mask.js"></script>
+
         <!-- Definindo o a url Padrão do sistema -->
         <script type="text/javascript">var BASE_URL = '<?php echo BASE_URL; ?>'</script>
 
