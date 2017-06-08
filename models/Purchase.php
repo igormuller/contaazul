@@ -79,14 +79,33 @@ class Purchase extends model {
         return $id_company;
     }
 
-    public function getPurchase($id_purchase) {
-        $sql = $this->db->prepare("SELECT * FROM purchase WHERE id_purchase = :id_purchase");
+    public function getPurchase($id_purchase, $id_company) {
+        $sql = $this->db->prepare("SELECT * FROM purchase WHERE id_purchase = :id_purchase AND id_company = :id_company");
         $sql->bindValue(":id_purchase", $id_purchase);
+        $sql->bindValue(":id_company", $id_company);
         $sql->execute();
 
         $array = array();
         if ($sql->rowCount() > 0) {
             $array = $sql->fetch();
+            $array['products'] = array();
+            $sql = $this->db->prepare("
+                      SELECT
+                        pp.id_inventory,
+                        inventory.name,
+                        pp.qtd,
+                        pp.purchase_price,
+                        (pp.qtd * pp.purchase_price) AS subtotal
+                      FROM purchase_product pp
+                      LEFT JOIN inventory ON inventory.id_inventory = pp.id_inventory
+                      WHERE pp.id_purchase = :id_purchase AND pp.id_company = :id_company");
+            $sql->bindValue(":id_purchase", $id_purchase);
+            $sql->bindValue(":id_company", $id_company);
+            $sql->execute();
+
+            if ($sql->rowCount() > 0){
+                $array['products'] = $sql->fetchAll();
+            }
         }
         return $array;
     }

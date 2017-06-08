@@ -21,7 +21,7 @@ class purchaseController extends controller
         $company = new Company($user->getCompany());
         $data['company_name'] = $company->getName();
 
-        if ($user->hasPermission("PURCHASES_VIEW")) {
+        if ($user->hasPermission("PURCHASE_VIEW")) {
             $purchases = new Purchase();
 
             //Código paginação
@@ -55,7 +55,7 @@ class purchaseController extends controller
         $company = new Company($user->getCompany());
         $data['company_name'] = $company->getName();
 
-        if ($user->hasPermission("PURCHASES_EDIT")) {
+        if ($user->hasPermission("PURCHASE_EDIT")) {
             $purchase = new Purchase();
 
             if (isset($_POST['product']) && !empty($_POST['product'])) {
@@ -64,8 +64,6 @@ class purchaseController extends controller
 
                 header("Location: ".BASE_URL."/purchase");
             }
-
-
 
             $this->loadTemplate("purchaseAdd", $data);
         } else {
@@ -81,11 +79,11 @@ class purchaseController extends controller
         $company = new Company($user->getCompany());
         $data['company_name'] = $company->getName();
 
-        if ($user->hasPermission("PURCHASES_EDIT")) {
+        if ($user->hasPermission("PURCHASE_VIEW")) {
             $purchase = new Purchase();
 
             if ($user->getCompany() === $purchase->getCompany($id_purchase)) {
-                $data['purchase'] = $purchase->getPurchase($id_purchase);
+                $data['purchase'] = $purchase->getPurchase($id_purchase, $user->getCompany());
                 $this->loadTemplate("purchaseView", $data);
             } else {
                 header("Location: " . BASE_URL . "/erro/permission");

@@ -16,24 +16,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-primary">
-                    <form method="POST">
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label>Valor Total</label>
-                                <input type="text" class="form-control" name="total_price" id="total_price" disabled />
-                            </div>
-                            <fieldset>
-                                <legend><h4>Produtos</h4></legend>
-                                <div class="input-group">
-                                    <input type="hidden" name="product_id" />
-                                    <input type="hidden" name="product_name" />
-                                    <input type="hidden" name="product_price" />
-                                    <input type="text" id="product_add" class="form-control" placeholder="Procurar..." data-type="search_inventory" />
-                                    <div class="input-group-addon"><a href="javascript:;" class="product_add_purchase"><i class="fa fa-plus"></i> <strong>Adicionar Produto na Compra</strong></a></div>
-                                </div>
-                                <br/>
-                                <a href="javascript:;" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalNewProduct">Novo Produto</a>
-                            </fieldset>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Valor Total</label>
+                            <input type="text" class="form-control" name="total_price" value="<?php echo "R$ ".number_format($purchase['total_price'],2,',','.'); ?>" disabled />
+                        </div>
+                        <fieldset>
+                            <legend><h4>Produtos</h4></legend>
                             <table class="table table-condensed" id="products_table">
                                 <tr>
                                     <th>#</th>
@@ -41,15 +30,19 @@
                                     <th>Preço Unit.</th>
                                     <th>Quantidade</th>
                                     <th>Sub-Total</th>
-                                    <th>Ações</th>
                                 </tr>
+                                <?php foreach ($purchase['products'] as $p): ?>
+                                    <tr>
+                                        <td><?php echo $p['id_inventory']; ?></td>
+                                        <td><?php echo $p['name']; ?></td>
+                                        <td><?php echo "R$ ".number_format($p['purchase_price'],2,',','.'); ?></td>
+                                        <td><?php echo $p['qtd']; ?></td>
+                                        <td><?php echo "R$ ".number_format($p['subtotal'],2,',','.'); ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
                             </table>
-                        </div>
-                        <div class="box-footer">
-                            <input type="submit" class="btn btn-success" value="Salvar" />
-                        </div>
-                    </form>
-
+                        </fieldset>
+                    </div>
                 </div>
             </div>
         </div>
@@ -82,5 +75,3 @@
     </div>
 </div>
 <!-- Modal Adicionar produto -->
-
-<script src="<?php echo BASE_URL; ?>/assets/js/script_product_purchase.js"></script>
