@@ -7,6 +7,7 @@ class reportController extends controller {
         $u = new User();
         if (!$u->isLogged()){
             header("Location: ".BASE_URL."/login");
+            exit("<strong> Informo que é necessário <a href='".BASE_URL."/login'>logar</a> no sistema.</strong>");
         }
     }
 
@@ -60,18 +61,32 @@ class reportController extends controller {
 
         if ($user->hasPermission("REPORT_VIEW")) {
             $client_name = addslashes($_GET['client_name']);
-            $period1 = str_replace("/","-", addslashes($_GET['period1'])."00:00:00");
-            $period1 = date("Y-m-d H:i:s", strtotime($period1));
-            $period2 = str_replace("/","-", addslashes($_GET['period2'])."23:59:59");
-            $period2 = date("Y-m-d H:i:s", strtotime($period2));
-
+            $period1 = "";
+            $period2 = "";
+            if (!empty($_GET['period1']) && !empty($_GET['period1'])) {
+                $period1 = str_replace("/","-", addslashes($_GET['period1'])."00:00:00");
+                $period1 = date("Y-m-d H:i:s", strtotime($period1));
+                $period2 = str_replace("/","-", addslashes($_GET['period2'])."23:59:59");
+                $period2 = date("Y-m-d H:i:s", strtotime($period2));
+            }
             $status = addslashes($_GET['status']);
             $order = addslashes($_GET['order']);
 
             $s = new Sale();
             $data['sale_list'] = $s->getSaleFiltered($client_name, $period1, $period2, $status, $order, $user->getCompany());
             $data['filters'] = $_GET;
+
+            $this->loadLibrary('mpdf/mpdf');
+
+            ob_start();
             $this->loadView("sales_pdf", $data);
+            $html = ob_get_contents();
+            ob_end_clean();
+
+            $mpdf = new mPDF();
+            $mpdf->WriteHTML($html);
+            $mpdf->Output();
+
         } else {
             header("Location: ".BASE_URL."/erro/permission");
         }

@@ -7,6 +7,7 @@ class userController extends controller {
         $u = new User();
         if (!$u->isLogged()){
             header("Location: ".BASE_URL."/login");
+            exit("<strong> Informo que é necessário <a href='".BASE_URL."/login'>logar</a> no sistema.</strong>");
         }
     }
     
