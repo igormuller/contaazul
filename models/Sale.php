@@ -187,4 +187,34 @@ class Sale extends model {
         }
         return $array;
     }
+
+    public function getSalePeriod($period1, $period2, $id_company) {
+        $sql = $this->db->prepare("SELECT * FROM sale WHERE id_company = :id_company AND date_sale BETWEEN :period1 AND :period2");
+        $sql->bindValue(":id_company", $id_company);
+        $sql->bindValue(":period1", $period1);
+        $sql->bindValue(":period2", $period2);
+        $sql->execute();
+
+        $array = array();
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }
+        return $array;
+    }
+
+    public function getPriceInDate($date_sale, $id_company) {
+        $sql = $this->db->prepare("SELECT SUM(total_price) AS total_price FROM sale WHERE id_company = :id_company AND date_sale BETWEEN :date_sale1 AND :date_sale2");
+        $sql->bindValue(":id_company", $id_company);
+        $sql->bindValue(":date_sale1", $date_sale." 00:00:00");
+        $sql->bindValue(":date_sale2", $date_sale." 23:59:59");
+        $sql->execute();
+
+        $total_price = $sql->fetch()['total_price'];
+        if ($total_price > 0) {
+            return $total_price;
+        } else {
+            return 0;
+        }
+
+    }
 }
